@@ -313,10 +313,10 @@
       ],
       "settings": {
         "text_notice": "",
-        "show_reviews": false,
+        "show_reviews": true,
         "image_size": false,
-        "color_accent": "#FFFFFF",
-        "text_color": "#FFFFFF"
+        "color_accent": "#ffffff",
+        "text_color": "#ffffff"
       }
     }
   },
