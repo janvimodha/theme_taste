@@ -1,0 +1,94 @@
+<div style="background-color:{{ section.settings.color_accent }}">
+<h3 style="color:{{ section.settings.text_color }}">Featured Product</h3>
+<h2>{{ product.title }}</h2>
+<img src="{{ product.featured_image | img_url: '300x' }}" />
+{% if section.settings.show_reviews %}
+<h4>⭐⭐⭐⭐</h4>
+  {% endif %}
+<p>{{ section.settings.text_notice}}</p>
+{% if section.settings.image_size %}
+  <img src="{{ product.featured_image | img_url: '450x', crop: 'center' }}" />
+  {% endif %} 
+  </div>
+  <hr>
+  image gallery
+<div class="gallery" >
+   {% for block in section.blocks %}
+     <div class="gallery_item">
+       {% if block.settings.enable_gallery_img %}
+         <img src="{{ block.settings.gallery_image | img_url:'400x' }}"/>
+         {% endif %}
+     </div>
+     {% endfor %}
+</div>
+{% schema %}
+  {
+    "name": "Main test product",
+    "settings": [
+      {
+        "id": "text_notice",
+        "type":"text",
+        "label":"text notice"
+      },
+      {
+        "id": "show_reviews",
+        "type":"checkbox",
+        "label":"show reviews"
+      },
+       {
+        "id": "image_size",
+        "type":"checkbox",
+        "label":"450"
+      },
+        {
+          "type": "color",
+          "label": "choose background color",
+          "id": "color_accent",
+          "default": "#FFFFFF"
+        },
+      {
+          "type": "color",
+          "label": "choose heading color",
+          "id": "text_color",
+          "default": "#FFFFFF"
+        }
+      
+      ],
+    "blocks": [
+    {
+      "type": "gallery",
+      "name": "Gallery",
+      "settings": [
+        {
+          "type": "checkbox",
+          "label": "Enable gallery",
+          "id": "enable_gallery_img",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "label": "choose image",
+          "id": "gallery_image"
+        }
+        
+      ]
+    }
+  ],
+    "presets": [
+    {
+      "name": "custom gallery",
+      "blocks" :[
+        {
+          "type":"gallery"
+        }
+      ]
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

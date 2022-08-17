@@ -1,0 +1,9 @@
+.gallery{display:flex;}
+.announcement-bar__message {
+  text-align: left!important;  
+  }
+.slideshow__text.banner__box 
+{
+  background-color:rgba(247, 243, 238,0.6)!important;
+}
+
