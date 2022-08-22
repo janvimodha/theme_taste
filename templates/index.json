@@ -322,7 +322,8 @@
     "16611638085e323e1a": {
       "type": "Featured-product-demo",
       "settings": {
-        "product_per_page": 8
+        "text": "WELCOME",
+        "align_radio": "right"
       }
     }
   },
