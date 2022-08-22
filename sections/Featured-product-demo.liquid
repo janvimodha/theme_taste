@@ -1,8 +1,10 @@
-<div>
-    {% if section.settings.product_per_page != 0 %}
-          {{section.collection.all_products_count}}
+{% if section.settings.Product_per_page !=0 %}
+    {% for number in collection %}
+        {% if number == product_per_page %}
+            {{number}}
         {% endif %}
-</div>
+    {% endfor %}
+{% endif %}
 
 {% schema %}
 {
