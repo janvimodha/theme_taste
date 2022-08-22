@@ -6,10 +6,7 @@
 <h4>⭐⭐⭐⭐⭐</h4>
   {% endif %}
 <p>{{ section.settings.text_notice}}</p>
-  <p>{% for field in resource.metafields.product_description %}
-  {{ field | Product_Description }}
-{% endfor %}
-</p>
+
 {% if section.settings.image_size %}
   <img src="{{ product.featured_image | img_url: '450x', crop: 'center' }}" />
   {% endif %} 
