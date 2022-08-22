@@ -1,3 +1,4 @@
+{% if section.settings.announcement-checkbox %}
 {%- for block in section.blocks -%}
   {%- case block.type -%}
     {%- when 'announcement' -%}
@@ -19,6 +20,7 @@
   {%- endcase -%}
 {%- endfor -%}
 </div>
+{% endif %}
 {% schema %}
 {
   "name": "t:sections.announcement-bar.name",
@@ -29,6 +31,12 @@
           "label": "choose background color",
           "id": "color_accent",
           "default": "#FFFFFF"
+    },
+    {
+      "type":"checkbox",
+      "label":"show announcement bar",
+      "id":"announcement-checkbox",
+      "default":false
     }
   ],
   "blocks": [
