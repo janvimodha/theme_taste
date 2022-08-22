@@ -1,5 +1,5 @@
 
-    <h3 style="text-align:{{ section.settings.align_radio}}">{{section.settings.text}}</h3>
+    <h3 style="text-align:{{ section.settings.align_radio}} font-size:{{ section.settings.font_size }}">{{section.settings.text}}</h3>
 
 
 
@@ -32,7 +32,17 @@
         ],
         "default":"left",
         "label":"choose alignment of text"
-    }
+    },
+      {
+        "type":"range",
+        "id":"font_size",
+        "min":10,
+        "max":50,
+        "unit":"px",
+        "step":1,
+        "label":"font size",
+        "default":25
+      }
     ],
     "presets":[{
         "name":"align text example"
