@@ -323,7 +323,7 @@
       "type": "Featured-product-demo",
       "settings": {
         "text": "WELCOME",
-        "align_radio": "right"
+        "align_radio": "center"
       }
     }
   },
