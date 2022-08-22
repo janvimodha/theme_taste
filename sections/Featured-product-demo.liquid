@@ -1,24 +1,37 @@
-{% if section.settings.Product_per_page !=0 %}
-    {% for number in collection %}
-        {% if number == product_per_page %}
-            {{number}}
-        {% endif %}
-    {% endfor %}
-{% endif %}
+
+    <h3 style="text-align:{{ section.settings.align_radio}}">{{section.settings.text}}</h3>
+
+
 
 {% schema %}
 {
-    "name":"featured product demo",
+    "name":"align text example",
     "settings":[
     {
-          "type":"number",
-          "id":"product_per_page",
-          "label":"choose product to display",
-          "default":3
+          "type":"text",
+          "id":"text",
+          "label":"enter any text",
+          "default":"WELCOME"
+    },
+    {
+        "type":"radio",
+        "id":"align_radio",
+        "options":[
+          {
+            "value":"left",
+            "label":"left"
+          },
+          {
+            "value":"right",
+            "label":"right"
+          }       
+        ],
+        "default":"left",
+        "label":"choose alignment of text"
     }
     ],
     "presets":[{
-        "name":"featured product demo"
+        "name":"align text example"
     }]
 }
 {% endschema %}
