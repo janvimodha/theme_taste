@@ -1,0 +1,22 @@
+<div>
+    {% if section.settings.product_per_page != 0 %}
+          {{section.collection.featured-collection}}
+        {% endif %}
+</div>
+
+{% schema %}
+{
+    "name":"featured product demo",
+    "settings":[
+    {
+          "type":"number",
+          "id":"product_per_page",
+          "label":"choose product to display",
+          "default":3
+    }
+    ],
+    "presets":[{
+        "name":"featured product demo"
+    }]
+}
+{% endschema %}
