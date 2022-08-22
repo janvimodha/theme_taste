@@ -315,7 +315,7 @@
         "text_notice": "",
         "show_reviews": true,
         "image_size": false,
-        "color_accent": "#ffffff",
+        "color_accent": "#FFFFFF",
         "text_color": "#ffffff"
       }
     }
