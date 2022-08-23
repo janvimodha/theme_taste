@@ -1,5 +1,5 @@
 
-    <div style="text-align:{{ section.settings.align_radio}}; font-size:{{ section.settings.font_size | append:'px'}};">{{section.settings.text}}</div> 
+    <div style="text-align:{{ section.settings.align_radio}}; font-size:{{ section.settings.font_size | append:'px'}}; color:{{ section.settings.text_color }}">{{section.settings.text}}</div> 
 
 
 
@@ -42,6 +42,26 @@
         "unit":"px",
         "label":"choose font size",
         "default":35
+      },
+      {
+        "type":"select",
+        "id":"text_color",
+        "options":[
+          {
+            "value":"red",
+            "label":"Red"
+          },
+          {
+            "value":"green",
+            "label":"Green"
+          },
+          {
+            "value":"blue",
+            "label":"Blue"
+          }
+        ],
+        "default":"green",
+        "label":"select text color"
       }
     ],
     "presets":[{
