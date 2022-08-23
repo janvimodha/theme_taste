@@ -325,8 +325,7 @@
         "text": "WELCOME",
         "align_radio": "center",
         "font_size": 37,
-        "text_color": "green",
-        "page": "about"
+        "text_color": "green"
       }
     }
   },
