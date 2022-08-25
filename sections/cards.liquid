@@ -1,12 +1,41 @@
+<div>              
+               <div>
+                 {% if block.settings.card_image != blank %}
+                     <img src="{{block.settings.card_image}}">
+
+                     {% else %}
+
+                     {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                     
+                    {% endif %}
+               </div> 
+   
+</div>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+    "name":"Cards",
+    "tag":"section",
+    "class":"cards-wrapper",
+    
+    "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.image-with-text.blocks.heading.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Image with text",
+          "label": "t:sections.image-with-text.blocks.heading.settings.heading.label"
+        }
+        ]
+    }
+    ],
+    "presets":[
+    {
+        "name":"Cards"
+    }]
+}
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
