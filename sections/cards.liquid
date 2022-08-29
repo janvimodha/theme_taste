@@ -18,13 +18,14 @@
         <div>
           
             {% for block in section.blocks %}
-            
+               {% if block.settings.show_table_one == true %}
                 <table>
                         <tr>
                             <td>{{block.settings.heading}}</td>
                             <td>{{block.settings.info}}</td>
                         </tr>
                 </table>
+                {% endif %}
                 {% if section.settings.checkbox == true%}
                 <table>
                     <tr><td colspan="2">{{block.settings.name}}</td></tr>
@@ -103,6 +104,11 @@
                 "type": "text",
                 "id": "info",
                 "label": "information"
+              },
+              {
+                "type":"checkbox",
+                "id":"show_table_one",
+                "label":"Show Table"
               }
             
             ]
