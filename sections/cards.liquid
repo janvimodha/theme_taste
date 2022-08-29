@@ -16,16 +16,16 @@
         </div>
         
         <div>
-            
+          {% if section.settings.checkbox %}
             {% for block in section.blocks %}
-            {% if section.settings.checkbox %}
+            
                 <table>
                         <tr>
                             <td>{{block.settings.heading}}</td>
                             <td>{{block.settings.info}}</td>
                         </tr>
                 </table>
-            {% endif %}
+                {% else %}
                 <table>
                     <tr><td colspan="2">{{block.settings.name}}</td></tr>
                     <tr><td colspan="2">{{block.settings.name1}}</td></tr>
@@ -43,7 +43,7 @@
                   </table>
                
             {% endfor %}  
-             
+            {% endif %}
         </div>
    </div>
 </div>
