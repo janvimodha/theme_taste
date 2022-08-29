@@ -16,16 +16,16 @@
         </div>
         
         <div>
-          {% if section.settings.checkbox == blank %}
-            {% for block in section.blocks %}
             
+            {% for block in section.blocks %}
+            {% if section.settings.checkbox %}
                 <table>
                         <tr>
                             <td>{{block.settings.heading}}</td>
                             <td>{{block.settings.info}}</td>
                         </tr>
                 </table>
-           {% else %}
+            {% endif %}
                 <table>
                     <tr><td colspan="2">{{block.settings.name}}</td></tr>
                     <tr><td colspan="2">{{block.settings.name1}}</td></tr>
@@ -41,9 +41,9 @@
                     <tr><td colspan="2">{{block.settings.name9}}</td></tr>
                     <tr><td colspan="2">{{block.settings.name10}}</td></tr>
                   </table>
-                  
-            {% endfor %}
-            {% endif %}
+               
+            {% endfor %}  
+             
         </div>
    </div>
 </div>
@@ -82,6 +82,12 @@
             "type": "text",
             "id": "subtitle",
             "label": "Subtitle"
+          },
+          {
+            "type":"checkbox",
+            "id":"checkbox",
+            "label":"display table",
+            "default":false
           }
         ],
         "blocks": [
