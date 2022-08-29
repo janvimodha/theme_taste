@@ -16,7 +16,7 @@
         </div>
         
         <div>
-          {% if block.settings.checkbox %}
+          
             {% for block in section.blocks %}
             
                 <table>
@@ -25,7 +25,7 @@
                             <td>{{block.settings.info}}</td>
                         </tr>
                 </table>
-                {% else block.settings.checkbox1%}
+                {% if section.settings.checkbox == true%}
                 <table>
                     <tr><td colspan="2">{{block.settings.name}}</td></tr>
                     <tr><td colspan="2">{{block.settings.name1}}</td></tr>
@@ -41,9 +41,8 @@
                     <tr><td colspan="2">{{block.settings.name9}}</td></tr>
                     <tr><td colspan="2">{{block.settings.name10}}</td></tr>
                   </table>
-               
-            {% endfor %}  
-            {% endif %}
+                  {% endif %}
+            {% endfor %}
         </div>
    </div>
 </div>
@@ -82,6 +81,12 @@
             "type": "text",
             "id": "subtitle",
             "label": "Subtitle"
+          },
+          {
+            "type":"checkbox",
+            "id":"checkbox",
+            "label":"display table",
+            "default":false
           }
         ],
         "blocks": [
@@ -98,12 +103,6 @@
                 "type": "text",
                 "id": "info",
                 "label": "information"
-              },
-              {
-                "type":"checkbox",
-                "id":"checkbox",
-                "label":"display table",
-                "default":false
               }
             
             ]
@@ -167,12 +166,6 @@
                 "type": "text",
                 "id": "name10",
                 "label": "Name10"
-              },
-              {
-                "type":"checkbox",
-                "id":"checkbox1",
-                "label":"display table 2",
-                "default":true
               }
             
             ]
