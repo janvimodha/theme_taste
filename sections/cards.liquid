@@ -1,62 +1,175 @@
 <div>
     <div>
-      <h3>{{section.settings.heading}}</h3>
-      {% for block in section.blocks %}
-          <div>
-            <h2 >{{ block.settings.title }}</h2>
-          </div>
-          <div>
-            <a href="{{block.settings.link_pdf}}">{{block.settings.pdf_name}}</a>
-          </div>
-      {% endfor %}
-    </div>
+        <div>
+             <h3>{{section.settings.heading}}</h3>
+             <p>{{section.settings.content}}</p>
+        </div>
+        <div>
+            <h3>{{section.settings.heading1}}</h3>
+            <p>{{section.settings.content1}}</p>
+         </div>
+   </div>
+   <div>
+        <div>
+            <h3>{{section.settings.title}}</h3>
+            <h4>{{section.settings.subtitle}}</h4>
+        </div>
+        
+        <div>
+          {% if section.settings.checkbox == blank %}
+            {% for block in section.blocks %}
+            
+                <table>
+                        <tr>
+                            <td>{{block.settings.heading}}</td>
+                            <td>{{block.settings.info}}</td>
+                        </tr>
+                </table>
+           {% else %}
+                <table>
+                    <tr><td colspan="2">{{block.settings.name}}</td></tr>
+                    <tr><td colspan="2">{{block.settings.name1}}</td></tr>
+                    <tr>
+                      <td rowspan="6">{{block.settings.name2}}</td>
+                    </tr>
+                    <tr><td>{{block.settings.name3}}</td></tr>
+                    <tr><td>{{block.settings.name4}}</td></tr>
+                    <tr><td>{{block.settings.name5}}</td></tr>
+                    <tr><td>{{block.settings.name6}}</td></tr>
+                    <tr><td>{{block.settings.name7}}</td></tr>
+                    <tr><td colspan="2">{{block.settings.name8}}</td></tr>
+                    <tr><td colspan="2">{{block.settings.name9}}</td></tr>
+                    <tr><td colspan="2">{{block.settings.name10}}</td></tr>
+                  </table>
+                  
+            {% endfor %}
+            {% endif %}
+        </div>
+   </div>
 </div>
-    
+
 {% schema %}
-{
-    "name": "pdf-text",
-    "class": "section",
-    "settings": [
-        { 
-          "id":"text",
-          "type":"text",
-          "label":"Heading"
-        }
-    ],"blocks": [
-    {
-        "type": "text",
-        "name": "Name",
+      {
+        "name": "text-table",
+        "class":"section",
         "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+          },
+          {
+            "type": "html",
+            "id": "content",
+            "label": "Content"
+          },
+          {
+            "type": "text",
+            "id": "heading1",
+            "label": "Heading-1"
+          },
+          {
+            "type": "html",
+            "id": "content1",
+            "label": "Content-1"
+          },
           {
             "type": "text",
             "id": "title",
-            "label": "Heading"
-          }
-        ]  
-    },
-    {
-        "type": "section",
-        "name": "PDF",
-        "settings": [
+            "label": "Title"
+          },
           {
-            "type": "url",
-            "id": "link_pdf",
-            "label": "PDF-link"
-          },{
             "type": "text",
-            "id": "pdf_name",
-            "label": "PDF-name"
+            "id": "subtitle",
+            "label": "Subtitle"
           }
-        ]  
+        ],
+        "blocks": [
+          {
+            "type": "text",
+            "name": "Table",
+            "settings": [
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Name"
+              },
+              {
+                "type": "text",
+                "id": "info",
+                "label": "information"
+              }
+            
+            ]
+            
+          },
+          {
+            "type": "section",
+            "name": "Table1",
+            "settings": [
+            {
+                "type": "text",
+                "id": "name",
+                "label": "Name"
+              },
+              {
+                "type": "text",
+                "id": "name1",
+                "label": "Name1"
+              },
+              {
+                "type": "text",
+                "id": "name2",
+                "label": "Name2"
+              },
+              {
+                "type": "text",
+                "id": "name3",
+                "label": "Name3"
+              },
+              {
+                "type": "text",
+                "id": "name4",
+                "label": "Name4"
+              },
+              {
+                "type": "text",
+                "id": "name5",
+                "label": "Name5"
+              },
+              {
+                "type": "text",
+                "id": "name6",
+                "label": "Name6"
+              },
+              {
+                "type": "text",
+                "id": "name7",
+                "label": "Name7"
+              },
+              {
+                "type": "text",
+                "id": "name8",
+                "label": "Name8"
+              },
+              {
+                "type": "text",
+                "id": "name9",
+                "label": "Name9"
+              },
+              {
+                "type": "text",
+                "id": "name10",
+                "label": "Name10"
+              }
+            
+            ]
+            
+          }
+        ],"presets": [
+    {
+      "name": "Text-table"
     }
-],"presets": [
-{
-  "name": "Text-PDF"
-}
-]
-}
-{% endschema %}
-
-    
-      
-    
+  ]
+      }
+    {% endschema %}
