@@ -1,186 +1,64 @@
-<div>
+
+<div style="background-color:{{section.settings.color}}; color:{{section.settings.color_text}}; background-image:url({{ section.settings.image | img_url:'master' }})">
+    <h3>{{section.settings.heading}}</h3>
+    <p>{{section.settings.info}}</p>
     <div>
-        <div>
-             <h3>{{section.settings.heading}}</h3>
-             <p>{{section.settings.content}}</p>
-        </div>
-        <div>
-            <h3>{{section.settings.heading1}}</h3>
-            <p>{{section.settings.content1}}</p>
-         </div>
-   </div>
-   <div>
-        <div>
-            <h3>{{section.settings.title}}</h3>
-            <h4>{{section.settings.subtitle}}</h4>
-        </div>
-        
-        <div>
-          
-            {% for block in section.blocks %}
-               {% if block.settings.show_table_one == true %}
-                <table>
-                        <tr>
-                            <td>{{block.settings.heading}}</td>
-                            <td>{{block.settings.info}}</td>
-                        </tr>
-                </table>
-                {% endif %}
-                {% if section.settings.checkbox == true%}
-                <table>
-                    <tr><td colspan="2">{{block.settings.name}}</td></tr>
-                    <tr><td colspan="2">{{block.settings.name1}}</td></tr>
-                    <tr>
-                      <td rowspan="6">{{block.settings.name2}}</td>
-                    </tr>
-                    <tr><td>{{block.settings.name3}}</td></tr>
-                    <tr><td>{{block.settings.name4}}</td></tr>
-                    <tr><td>{{block.settings.name5}}</td></tr>
-                    <tr><td>{{block.settings.name6}}</td></tr>
-                    <tr><td>{{block.settings.name7}}</td></tr>
-                    <tr><td colspan="2">{{block.settings.name8}}</td></tr>
-                    <tr><td colspan="2">{{block.settings.name9}}</td></tr>
-                    <tr><td colspan="2">{{block.settings.name10}}</td></tr>
-                  </table>
-                  {% endif %}
-            {% endfor %}
-        </div>
-   </div>
+    {% if section.settings.button_label != blank %}
+      <a href="{{section.settings.button_link}}">{{section.settings.button_label}}</a>
+    {% endif %}
+    </div>
 </div>
 
+
 {% schema %}
-      {
-        "name": "text-table",
-        "class":"section",
-        "settings": [
-          {
-            "type": "text",
-            "id": "heading",
-            "label": "Heading"
-          },
-          {
-            "type": "html",
-            "id": "content",
-            "label": "Content"
-          },
-          {
-            "type": "text",
-            "id": "heading1",
-            "label": "Heading-1"
-          },
-          {
-            "type": "html",
-            "id": "content1",
-            "label": "Content-1"
-          },
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Title"
-          },
-          {
-            "type": "text",
-            "id": "subtitle",
-            "label": "Subtitle"
-          },
-          {
-            "type":"checkbox",
-            "id":"checkbox",
-            "label":"display table",
-            "default":false
-          }
-        ],
-        "blocks": [
-          {
-            "type": "text",
-            "name": "Table",
-            "settings": [
-            {
-                "type": "text",
-                "id": "heading",
-                "label": "Name"
-              },
-              {
-                "type": "text",
-                "id": "info",
-                "label": "information"
-              },
-              {
-                "type":"checkbox",
-                "id":"show_table_one",
-                "label":"Show Table"
-              }
-            
-            ]
-            
-          },
-          {
-            "type": "section",
-            "name": "Table1",
-            "settings": [
-            {
-                "type": "text",
-                "id": "name",
-                "label": "Name"
-              },
-              {
-                "type": "text",
-                "id": "name1",
-                "label": "Name1"
-              },
-              {
-                "type": "text",
-                "id": "name2",
-                "label": "Name2"
-              },
-              {
-                "type": "text",
-                "id": "name3",
-                "label": "Name3"
-              },
-              {
-                "type": "text",
-                "id": "name4",
-                "label": "Name4"
-              },
-              {
-                "type": "text",
-                "id": "name5",
-                "label": "Name5"
-              },
-              {
-                "type": "text",
-                "id": "name6",
-                "label": "Name6"
-              },
-              {
-                "type": "text",
-                "id": "name7",
-                "label": "Name7"
-              },
-              {
-                "type": "text",
-                "id": "name8",
-                "label": "Name8"
-              },
-              {
-                "type": "text",
-                "id": "name9",
-                "label": "Name9"
-              },
-              {
-                "type": "text",
-                "id": "name10",
-                "label": "Name10"
-              }
-            
-            ]
-            
-          }
-        ],"presets": [
+{
+  "name": "info-text",
+  "tag": "section",
+  "class": "section",
+  "settings": [
     {
-      "name": "Text-table"
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+        "type": "html",
+        "id": "info",
+        "label": "Information"
+      },
+      {
+          "type": "color",
+          "id": "color",
+          "label": "Background-color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "color_text",
+          "label": "Color",
+          "default": "#000"
+        },
+        { 
+          "type":"text",
+          "id":"button_label",
+          "label":"Button label"
+      },
+      {
+          "type":"url",
+          "id":"button_link",
+          "label":"Button link"
+      },
+      {
+        "type":"image_picker",
+        "id":"image",
+        "label":"Background Image"
+      }
+      ],
+
+  "presets": [
+    {
+      "name": "info-text"
     }
   ]
-      }
-    {% endschema %}
+}
+{% endschema %}
