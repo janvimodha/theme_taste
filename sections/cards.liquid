@@ -1,4 +1,6 @@
+{% if section.settings.image != blank %}
 <div style="background-image:url({{ section.settings.image | img_url:'master' }})">
+  {% else %}
 <div style="background-color:{{section.settings.color}}; color:{{section.settings.color_text}}">
     <h3>{{section.settings.heading}}</h3>
     <p>{{section.settings.info}}</p>
@@ -9,6 +11,7 @@
     </div>
 </div>
 </div>
+{% endif %}
 {% schema %}
 {
   "name": "info-text",
