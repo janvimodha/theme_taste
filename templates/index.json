@@ -325,7 +325,40 @@
         "text": "WELCOME",
         "align_radio": "center",
         "font_size": 37,
-        "text_color": "green"
+        "text_color": "green",
+        "product": ""
+      }
+    },
+    "166186251030945760": {
+      "type": "cards",
+      "blocks": {
+        "056070c1-aba4-42b4-b86e-fc8a4d68189e": {
+          "type": "text",
+          "settings": {
+            "heading": "y",
+            "info": "y"
+          }
+        },
+        "1f9869f5-895f-4d9c-b99f-6a15fbbf4a19": {
+          "type": "text",
+          "settings": {
+            "heading": "hhhhh",
+            "info": "hhhhhh"
+          }
+        }
+      },
+      "block_order": [
+        "056070c1-aba4-42b4-b86e-fc8a4d68189e",
+        "1f9869f5-895f-4d9c-b99f-6a15fbbf4a19"
+      ],
+      "settings": {
+        "heading": "",
+        "content": "",
+        "heading1": "",
+        "content1": "",
+        "title": "",
+        "subtitle": "",
+        "checkbox": false
       }
     }
   },
@@ -339,6 +372,7 @@
     "16595960796a5490b0",
     "16596077206ce077e0",
     "16607448703de80bfc",
-    "16611638085e323e1a"
+    "16611638085e323e1a",
+    "166186251030945760"
   ]
 }
