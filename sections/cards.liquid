@@ -1,5 +1,5 @@
-
-<div style="background-color:{{section.settings.color}}; color:{{section.settings.color_text}}; background-image:url({{ section.settings.image | img_url:'master' }})">
+<div style="background-image:url({{ section.settings.image | img_url:'master' }})">
+<div style="background-color:{{section.settings.color}}; color:{{section.settings.color_text}}">
     <h3>{{section.settings.heading}}</h3>
     <p>{{section.settings.info}}</p>
     <div>
@@ -8,8 +8,7 @@
     {% endif %}
     </div>
 </div>
-
-
+</div>
 {% schema %}
 {
   "name": "info-text",
