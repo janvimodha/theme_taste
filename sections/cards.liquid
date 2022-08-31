@@ -1,4 +1,4 @@
-{% if section.settings.color != blank %}
+{% if section.settings.color == blank %}
 <div class="content_wrapper" style="background-color:{{section.settings.color}}; color:{{section.settings.color_text}}">
   {% else %}
   <div style="background-image:{{section.settings.image1 | img_url:'master'}}">
