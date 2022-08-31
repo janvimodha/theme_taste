@@ -331,34 +331,14 @@
     },
     "166186251030945760": {
       "type": "cards",
-      "blocks": {
-        "056070c1-aba4-42b4-b86e-fc8a4d68189e": {
-          "type": "text",
-          "settings": {
-            "heading": "y",
-            "info": "y"
-          }
-        },
-        "1f9869f5-895f-4d9c-b99f-6a15fbbf4a19": {
-          "type": "text",
-          "settings": {
-            "heading": "hhhhh",
-            "info": "hhhhhh"
-          }
-        }
-      },
-      "block_order": [
-        "056070c1-aba4-42b4-b86e-fc8a4d68189e",
-        "1f9869f5-895f-4d9c-b99f-6a15fbbf4a19"
-      ],
       "settings": {
-        "heading": "",
-        "content": "",
-        "heading1": "",
-        "content1": "",
-        "title": "",
-        "subtitle": "",
-        "checkbox": false
+        "heading": "the",
+        "info": "rdgdggddfhdf",
+        "color": "rgba(0,0,0,0)",
+        "color_text": "#000",
+        "button_label": "",
+        "button_link": "",
+        "image1": "shopify:\/\/shop_images\/french-press-with-frothy-black-coffee-on-white-blanket.jpg"
       }
     }
   },
