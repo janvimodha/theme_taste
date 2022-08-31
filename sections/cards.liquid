@@ -1,4 +1,6 @@
+{% if section.settings.color != blank %}}
 <div class="content_wrapper" style="background-color:{{section.settings.color}}; color:{{section.settings.color_text}}">
+  {% else %}}
   <div style="background-image:{{section.settings.image1 | img_url:'master'}}">
     <h3 class="section-title mb-20">{{section.settings.heading}}</h3>
     <p>{{section.settings.info}}</p>
@@ -9,6 +11,7 @@
     </div>
   </div>
 </div>
+  {% endif %}}
 {% schema %}
 {
   "name": "info-text",
