@@ -1,62 +1,85 @@
-<div class="content_wrapper" style="background-color:{{section.settings.color}}; color:{{section.settings.color_text}}">
-  <div style="background-image:{{section.settings.image1 | img_url:'master'}}">
-    <h3 class="section-title mb-20">{{section.settings.heading}}</h3>
-    <p>{{section.settings.info}}</p>
-    <div>
-    {% if section.settings.button_label != blank %}
-      <a href="{{section.settings.button_link}}">{{section.settings.button_label}}</a>
-    {% endif %}
-    </div>
-  </div>
+<div class="d-flex content_wrapper">
+    
+        <div style="background-color:{{section.settings.color}}">
+            <h3 style="color:{{section.settings.color_text}}">{{ section.settings.text }}</h3>
+            <p style="color:{{section.settings.color_text}}">{{ section.settings.content }}</p>
+            {% if section.settings.image1 != blank %}
+              <img src="{{section.settings.image1 | img_url:'master'}}">
+            {% endif %}
+        </div>
+        <div style="background-color:{{section.settings.color1}}; background-image:url({{ section.settings.image | img_url:'master' }})">
+            <h3 style="color:{{section.settings.color_text1}}">{{ section.settings.text1 }}</h3>
+            <p style="color:{{section.settings.color_text1}}">{{ section.settings.content1 }}</p>
+        </div>
+    
 </div>
+
 {% schema %}
 {
-  "name": "info-text",
+  "name": "text-content",
   "tag": "section",
   "class": "section",
   "settings": [
     {
       "type": "text",
-      "id": "heading",
+      "id": "text",
       "label": "Heading"
     },
     {
         "type": "html",
-        "id": "info",
-        "label": "Information"
-      },
-      {
-          "type": "color",
-          "id": "color",
-          "label": "Background-color",
-          "default": "#ffffff"
-        },
-        {
-          "type": "color",
-          "id": "color_text",
-          "label": "Color",
-          "default": "#000"
-        },
-        { 
-          "type":"text",
-          "id":"button_label",
-          "label":"Button label"
-      },
-      {
-          "type":"url",
-          "id":"button_link",
-          "label":"Button link"
+        "id": "content",
+        "label": "Content"
       },
       {
         "type":"image_picker",
         "id":"image1",
         "label":"Left Image"
-      }
+      },
+      {
+        "type": "text",
+        "id": "text1",
+        "label": "Heading-1"
+      },
+      {
+        "type":"image_picker",
+        "id":"image",
+        "label":"Background Image"
+      },
+      {
+          "type": "html",
+          "id": "content1",
+          "label": "Content-1"
+        },
+        {
+            "type": "color",
+            "id": "color_text",
+            "label": "Color",
+            "default": "#ffffff"
+          },
+          {
+              "type": "color",
+              "id": "color",
+              "label": "Background-color",
+              "default": "#1257A6"
+            },
+            {
+                "type": "color",
+                "id": "color_text1",
+                "label": "Color1",
+                "default": "#000000"
+                
+              },
+              {
+                  "type": "color",
+                  "id": "color1",
+                  "label": "Background-color",
+                  "default": "#ffffff"
+                }
       ],
 
   "presets": [
     {
-      "name": "info-text"
+      "name": "text-content"
     }
   ]
 }
