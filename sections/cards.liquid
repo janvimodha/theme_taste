@@ -33,35 +33,38 @@
           {% for block in section.blocks %}
                {% if section.settings.checkbox == false %}
                 <table>
-                        <tr>
-                            <td>{{block.settings.heading}}</td>
-                            <td>{{block.settings.info}}</td>
-                        </tr>
+                  {% if block.type == 'simple' %}
+
+                    {% if block.settings.heading != blank %}
+                      <tr>
+                        <td>{{block.settings.heading}}</td>
+                        <td>{{block.settings.info}}</td>
+                      </tr>
+                    {% endif %}
+
+                  {% elsif block.type == 'nameonly' %}
+
+                    {% if block.settings.onlyname != blank %}
+                      <tr><td colspan="2">{{block.settings.name}}</td></tr>
+                    {% endif %}
+                  
+                  {% elsif block.type == 'complex' %}
+
+                  <tr>
+                    <td rowspan="{{ block.settings.rowspan }}">{{block.settings.name2}}</td>
+                  </tr>
+                  <tr><td>{{block.settings.name3}}</td></tr>
+                  <tr><td>{{block.settings.name4}}</td></tr>
+                  <tr><td>{{block.settings.name5}}</td></tr>
+                  <tr><td>{{block.settings.name6}}</td></tr>
+                  <tr><td>{{block.settings.name7}}</td></tr>
+
+                  {% endif %}
+                        
                 </table>
         </div>
                 {% endif %}
-          <div>
-                {% if section.settings.checkbox == true%}
-                <table>
-                   {% if block.settings.colspan %}
-                    <tr><td colspan="{{ block.settings.colspan }}">{{block.settings.name}}</td></tr>
-                     {% endif %}
-                    <tr><td colspan="2">{{block.settings.name1}}</td></tr>
-                    <tr>
-                      <td rowspan="6">{{block.settings.name2}}</td>
-                    </tr>
-                    <tr><td>{{block.settings.name3}}</td></tr>
-                    <tr><td>{{block.settings.name4}}</td></tr>
-                    <tr><td>{{block.settings.name5}}</td></tr>
-                    <tr><td>{{block.settings.name6}}</td></tr>
-                    <tr><td>{{block.settings.name7}}</td></tr>
-                    <tr><td colspan="2">{{block.settings.name8}}</td></tr>
-                    <tr><td colspan="2">{{block.settings.name9}}</td></tr>
-                    <tr><td colspan="2">{{block.settings.name10}}</td></tr>
-                </table>
-                  {% endif %}
-            
-        </div>
+         
         {% endfor %}
         
    </div>
@@ -135,6 +138,17 @@
             
           },
           {
+            "type": "nameonly",
+            "name": "Name only Table",
+            "settings": [
+              {
+                "type": "text",
+                "id": "onlyname",
+                "label": "Single Name"
+              }
+            ]
+          },
+          {
             "type": "complex",
             "name": "Complex Table",
             "settings": [
@@ -152,29 +166,8 @@
                 "type": "text",
                 "id": "info",
                 "label": "Info"
-              },
-              {
-                "type":"select",
-                "id":"colspan",
-                "label":"Select colspan for table",
-                "options": [
-              {
-                "value": "1",
-                "label": "one"
-              },
-              {
-                "value": "2",
-                "label": "two"
-              },
-              {
-                "value": "3",
-                "label": "three"
               }
-            ],
-            "default": "2"
-                        }
-                      ]
-            
+            ]
           }
         ],"presets": [
     {
