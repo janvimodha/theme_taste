@@ -43,7 +43,9 @@
           <div>
                 {% if section.settings.checkbox == true%}
                 <table>
-                    <tr><td colspan="2">{{block.settings.name}}</td></tr>
+                   {% if block.settings.colspan %}
+                    <tr><td colspan="{{ block.settings.colspan }}">{{block.settings.name}}</td></tr>
+                     {% endif %}
                     <tr><td colspan="2">{{block.settings.name1}}</td></tr>
                     <tr>
                       <td rowspan="6">{{block.settings.name2}}</td>
