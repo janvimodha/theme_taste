@@ -1,23 +1,30 @@
-<div class="feature-table-section">
-    <div class="feature-hightleft">
-        <div class="content_wapper">
-             <h3 class="section-title mb-30">{{section.settings.heading}}</h3>
-             {{section.settings.content}}
-        </div>
-        <div>
-            <h3 class="section-title mb-30">{{section.settings.heading1}}</h3>
-            <p>{{section.settings.content1}}</p>
-         </div>
-         <div>
-          {% if section.settings.image != blank %}
-            
-         
-         <img src="{{section.settings.image | img_url:'master'}}">
-         {% endif %}
-        </div>
+<div class="feature-table-section flex flex-wrap">
+  <div class="feature-hightleft bg-dark_blue w-1/2 p-80">
+    <div class="feature-top mb-50">
+      <div class="section-title">
+        <h2 class="mb-35 text-white">{{ section.settings.heading }}</h2>
+      </div>
+      <div class="content_wrapper">
+        {{ section.settings.content }}
+      </div>
     </div>
-   <div>
-        <div>
+    <div class="feature-bottom">
+      <div class="section-title">
+        <h2 class="mb-35 text-white">{{ section.settings.heading1 }}</h>
+      </div>
+      <div class="content_wrapper">
+        <p>{{ section.settings.content1 }}</p>
+      </div>
+      <div>
+        {% if section.settings.image != blank %}
+        <img src="{{ section.settings.image | img_url:'master' }}">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+      
+   <div class="feature-hightright bg-blue w-1/2 p-80">
+        <div class="block-title">
             <h3 class="section-title mb-20">{{section.settings.title}}</h3>
             <h4 class="section-subtitle mb-20">{{section.settings.subtitle}}</h4>
         </div>
@@ -49,7 +56,7 @@
                     <tr><td colspan="2">{{block.settings.name8}}</td></tr>
                     <tr><td colspan="2">{{block.settings.name9}}</td></tr>
                     <tr><td colspan="2">{{block.settings.name10}}</td></tr>
-                  </table>
+                </table>
                   {% endif %}
             
         </div>
@@ -108,10 +115,10 @@
         ],
         "blocks": [
           {
-            "type": "text",
-            "name": "Table",
+            "type": "simple",
+            "name": "Simple Table",
             "settings": [
-            {
+              {
                 "type": "text",
                 "id": "heading",
                 "label": "Name"
@@ -119,72 +126,31 @@
               {
                 "type": "text",
                 "id": "info",
-                "label": "information"
+                "label": "Information"
               }
             
             ]
             
           },
           {
-            "type": "section",
-            "name": "Table1",
+            "type": "complex",
+            "name": "Complex Table",
             "settings": [
-            {
+              {
+                "type": "text",
+                "id": "onlyname",
+                "label": "Single Name"
+              },
+              {
                 "type": "text",
                 "id": "name",
                 "label": "Name"
               },
               {
                 "type": "text",
-                "id": "name1",
-                "label": "Name1"
-              },
-              {
-                "type": "text",
-                "id": "name2",
-                "label": "Name2"
-              },
-              {
-                "type": "text",
-                "id": "name3",
-                "label": "Name3"
-              },
-              {
-                "type": "text",
-                "id": "name4",
-                "label": "Name4"
-              },
-              {
-                "type": "text",
-                "id": "name5",
-                "label": "Name5"
-              },
-              {
-                "type": "text",
-                "id": "name6",
-                "label": "Name6"
-              },
-              {
-                "type": "text",
-                "id": "name7",
-                "label": "Name7"
-              },
-              {
-                "type": "text",
-                "id": "name8",
-                "label": "Name8"
-              },
-              {
-                "type": "text",
-                "id": "name9",
-                "label": "Name9"
-              },
-              {
-                "type": "text",
-                "id": "name10",
-                "label": "Name10"
+                "id": "info",
+                "label": "Info"
               }
-            
             ]
             
           }
