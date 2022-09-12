@@ -745,10 +745,23 @@ class SlideshowComponent extends SliderComponent {
 customElements.define('slideshow-component', SlideshowComponent);
 
 class VariantSelects extends HTMLElement {
+  // constructor() {
+  //   super();
+  //   this.addEventListener('change', this.onVariantChange);
+  // }
+  
+//pdp script 
   constructor() {
     super();
+    this.initLoad();
     this.addEventListener('change', this.onVariantChange);
   }
+  initLoad(){
+    this.updateOptions();
+    this.updateMasterId();
+    this.updateMedia();
+  }
+// pdp script end
 
   onVariantChange() {
     this.updateOptions();
