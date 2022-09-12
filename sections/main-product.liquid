@@ -684,6 +684,30 @@
   </script>
 </section>
 
+        <script>
+  var elem = document.querySelector('.carousel.product__image-slider');
+  var flkty = new Flickity( elem, {
+    contain: true,
+    imagesLoaded: true,
+    lazyLoad: 1,
+    wrapAround: true,
+    pageDots: false,
+    {% if product.images.size < 2 %}
+    prevNextButtons: false,
+    {% endif %}
+    adaptiveHeight: true
+  });
+  var elemThumbnail = document.querySelector('.carousel.product__image-thumbnail');
+  var flktyB = new Flickity( elemThumbnail, {
+    asNavFor: '.carousel.product__image-slider',
+    contain: true,
+    imagesLoaded: true,
+    lazyLoad: 4,
+    pageDots: false,
+    prevNextButtons: false
+  });
+</script>
+
 {% schema %}
 {
   "name": "t:sections.main-product.name",
