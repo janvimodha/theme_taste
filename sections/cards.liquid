@@ -1,19 +1,8 @@
 <div class="feature-table-section flex flex-wrap mdscreen1:flex-col {{ section.settings.extra_class }}">
   <div class="feature-hightleft bg-dark_blue w-full mdscreen2:w-1/2 px-30 py-40 mdscreen2:p-50 small_desktop:p-80">
-    <div class="feature-top {% if section.settings.heading1 != blank %} mb-50 {% endif%}">
+    <div class="feature-top {% if section.settings.heading != blank %} mb-50 {% endif%}">
       <div class="section-title">
         <h2 class="mb-35 text-white">{{ section.settings.heading }}</h2>
-      </div>
-      <div class="content_wrapper text-white">
-        {{ section.settings.content }}
-      </div>
-    </div>
-    <div class="feature-bottom">
-      <div class="section-title">
-        <h2 class="text-white {% if section.settings.heading1 != blank %}mb-35{% endif %}">{{ section.settings.heading1 }}</h>
-      </div>
-      <div class="content_wrapper"> 
-        <p>{{ section.settings.content1 }}</p>
       </div>
     </div>
   </div>
@@ -22,7 +11,6 @@
    <div class="feature-hightright flex flex-col justify-center bg-blue w-full mdscreen2:w-1/2 px-20 pt-40 pb-30 mdscreen2:p-50 small_desktop:p-80">
         <div class="block-title">
             <h2 class="section-title mb-20 text-white pl-10">{{section.settings.title}}</h2>
-            <h4 class="section-subtitle mb-20 text-white pl-10">{{section.settings.subtitle}}</h4>
         </div>
         <div class="feature-table-block">
           <table class="feature-table">
@@ -42,20 +30,7 @@
                       {% if block.settings.onlyname != blank %}
                         <tr class="table-listtr{{ forloop.index }}"><th colspan="2">{{ block.settings.onlyname }}</th></tr>
                       {% endif %}
-                    
-                  {% elsif block.type == 'complex' %}
-
-                      {% if block.settings.key != blank %}
-                        <tr class="table-listtr{{ forloop.index }}">
-                          <th rowspan="{{ block.settings.rowspan }}">{{ block.settings.key }}</th>
-                          {% if block.settings.info_1 != blank %}<td>{{ block.settings.info_1 }}</td>{% endif %}
-                        </tr>
-                        
-                        {% if block.settings.info_2 != blank %}<tr class="table-listtr{{ forloop.index }}"><td>{{ block.settings.info_2 }}</td></tr>{% endif %}
-                        {% if block.settings.info_3 != blank %}<tr class="table-listtr{{ forloop.index }}"><td>{{ block.settings.info_3 }}</td></tr>{% endif %}
-                        {% if block.settings.info_4 != blank %}<tr class="table-listtr{{ forloop.index }}"><td>{{ block.settings.info_4 }}</td></tr>{% endif %}
-                        {% if block.settings.info_5 != blank %}<tr class="table-listtr{{ forloop.index }}"><td>{{ block.settings.info_5 }}</td></tr>{% endif %}
-                      {% endif %}  
+                     
 
                   {% endif %}
             {% endfor %}
@@ -89,40 +64,9 @@
             "label": "Heading"
           },
           {
-            "type": "html",
-            "id": "content",
-            "label": "Content"
-          },
-          {
-            "type": "text",
-            "id": "heading1",
-            "label": "Heading-1"
-          },
-          {
-            "type": "html",
-            "id": "content1",
-            "label": "Content-1"
-          },
-          {
             "type": "text",
             "id": "title",
             "label": "Title"
-          },
-          {
-            "type": "text",
-            "id": "subtitle",
-            "label": "Subtitle"
-          },
-          {
-            "type": "checkbox",
-            "id": "only_show_image",
-            "label": "Only Show Image Hide Table",
-            "default": false
-          },
-          {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Image"
           }
          
         ],
@@ -155,49 +99,8 @@
                 "label": "Single Name"
               }
             ]
-          },
-          {
-            "type": "complex",
-            "name": "Complex Table",
-            "settings": [
-            
-              {
-                "type": "text",
-                "id": "rowspan",
-                "label": "Number of rowspan"
-              },
-              {
-                "type": "text",
-                "id": "key",
-                "label": "Key Name"
-              },
-              {
-                "type": "text",
-                "id": "info_1",
-                "label": "Info 1"
-              },
-              {
-                "type": "text",
-                "id": "info_2",
-                "label": "Info 2"
-              },
-              {
-                "type": "text",
-                "id": "info_3",
-                "label": "Info 3"
-              },
-              {
-                "type": "text",
-                "id": "info_4",
-                "label": "Info 4"
-              },
-              {
-                "type": "text",
-                "id": "info_5",
-                "label": "Info 5"
-              }
-            ]
           }
+          
         ],"presets": [
     {
       "name": "Text-table"
