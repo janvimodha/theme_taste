@@ -1,74 +1,76 @@
-<div class="feature-table-section flex flex-wrap">
-  <div class="feature-hightleft bg-dark_blue w-1/2 p-80">
-    <div class="feature-top mb-50">
+<div class="feature-table-section flex flex-wrap mdscreen1:flex-col {{ section.settings.extra_class }}">
+  <div class="feature-hightleft bg-dark_blue w-full mdscreen2:w-1/2 px-30 py-40 mdscreen2:p-50 small_desktop:p-80">
+    <div class="feature-top {% if section.settings.heading1 != blank %} mb-50 {% endif%}">
       <div class="section-title">
         <h2 class="mb-35 text-white">{{ section.settings.heading }}</h2>
       </div>
-      <div class="content_wrapper">
+      <div class="content_wrapper text-white">
         {{ section.settings.content }}
       </div>
     </div>
     <div class="feature-bottom">
       <div class="section-title">
-        <h2 class="mb-35 text-white">{{ section.settings.heading1 }}</h>
+        <h2 class="text-white {% if section.settings.heading1 != blank %}mb-35{% endif %}">{{ section.settings.heading1 }}</h>
       </div>
-      <div class="content_wrapper">
+      <div class="content_wrapper"> 
         <p>{{ section.settings.content1 }}</p>
-      </div>
-      <div>
-        {% if section.settings.image != blank %}
-        <img src="{{ section.settings.image | img_url:'master' }}">
-        {% endif %}
       </div>
     </div>
   </div>
       
-   <div class="feature-hightright bg-blue w-1/2 p-80">
+{% if section.settings.only_show_image == false %}
+   <div class="feature-hightright flex flex-col justify-center bg-blue w-full mdscreen2:w-1/2 px-20 pt-40 pb-30 mdscreen2:p-50 small_desktop:p-80">
         <div class="block-title">
-            <h3 class="section-title mb-20">{{section.settings.title}}</h3>
-            <h4 class="section-subtitle mb-20">{{section.settings.subtitle}}</h4>
+            <h2 class="section-title mb-20 text-white pl-10">{{section.settings.title}}</h2>
+            <h4 class="section-subtitle mb-20 text-white pl-10">{{section.settings.subtitle}}</h4>
         </div>
-        
-        <div>
-          {% for block in section.blocks %}
-               {% if section.settings.checkbox == false %}
-                <table>
+        <div class="feature-table-block">
+          <table class="feature-table">
+            {% for block in section.blocks %}
+                  
                   {% if block.type == 'simple' %}
 
-                    {% if block.settings.heading != blank %}
-                      <tr>
-                        <td>{{block.settings.heading}}</td>
-                        <td>{{block.settings.info}}</td>
-                      </tr>
-                    {% endif %}
+                      {% if block.settings.heading != blank %}
+                        <tr class="table-listtr{{ forloop.index }}">
+                          <th>{{ block.settings.heading }}</th>
+                          <td>{{ block.settings.info }}</td>
+                        </tr>
+                      {% endif %}
 
                   {% elsif block.type == 'nameonly' %}
 
-                    {% if block.settings.onlyname != blank %}
-                      <tr><td colspan="2">{{block.settings.name}}</td></tr>
-                    {% endif %}
-                  
+                      {% if block.settings.onlyname != blank %}
+                        <tr class="table-listtr{{ forloop.index }}"><th colspan="2">{{ block.settings.onlyname }}</th></tr>
+                      {% endif %}
+                    
                   {% elsif block.type == 'complex' %}
 
-                  <tr>
-                    <td rowspan="{{ block.settings.rowspan }}">{{block.settings.name2}}</td>
-                  </tr>
-                  <tr><td>{{block.settings.name3}}</td></tr>
-                  <tr><td>{{block.settings.name4}}</td></tr>
-                  <tr><td>{{block.settings.name5}}</td></tr>
-                  <tr><td>{{block.settings.name6}}</td></tr>
-                  <tr><td>{{block.settings.name7}}</td></tr>
+                      {% if block.settings.key != blank %}
+                        <tr class="table-listtr{{ forloop.index }}">
+                          <th rowspan="{{ block.settings.rowspan }}">{{ block.settings.key }}</th>
+                          {% if block.settings.info_1 != blank %}<td>{{ block.settings.info_1 }}</td>{% endif %}
+                        </tr>
+                        
+                        {% if block.settings.info_2 != blank %}<tr class="table-listtr{{ forloop.index }}"><td>{{ block.settings.info_2 }}</td></tr>{% endif %}
+                        {% if block.settings.info_3 != blank %}<tr class="table-listtr{{ forloop.index }}"><td>{{ block.settings.info_3 }}</td></tr>{% endif %}
+                        {% if block.settings.info_4 != blank %}<tr class="table-listtr{{ forloop.index }}"><td>{{ block.settings.info_4 }}</td></tr>{% endif %}
+                        {% if block.settings.info_5 != blank %}<tr class="table-listtr{{ forloop.index }}"><td>{{ block.settings.info_5 }}</td></tr>{% endif %}
+                      {% endif %}  
 
                   {% endif %}
-                        
-                </table>
+            {% endfor %}
+          </table>
         </div>
-                {% endif %}
-         
-        {% endfor %}
-        
    </div>
-   
+
+   {% else %}
+
+    <div class="feature-imgright w-full mdscreen2:w-1/2">
+      {% if section.settings.image != blank %}
+      <img class="w-full h-full" src="{{ section.settings.image | img_url:'master' }}">
+      {% endif %}
+    </div>
+    {% endif %}
 </div>
 
 {% schema %}
@@ -76,6 +78,11 @@
         "name": "text-table",
         "class":"section",
         "settings": [
+        {
+          "type": "text",
+          "id": "extra_class",
+          "label": "Extra class"
+        },
           {
             "type": "text",
             "id": "heading",
@@ -107,16 +114,17 @@
             "label": "Subtitle"
           },
           {
+            "type": "checkbox",
+            "id": "only_show_image",
+            "label": "Only Show Image Hide Table",
+            "default": false
+          },
+          {
             "type": "image_picker",
             "id": "image",
             "label": "Image"
-          },
-          {
-            "type":"checkbox",
-            "id":"checkbox",
-            "label":"display second table",
-            "default":false
           }
+         
         ],
         "blocks": [
           {
@@ -152,20 +160,41 @@
             "type": "complex",
             "name": "Complex Table",
             "settings": [
+            
               {
                 "type": "text",
-                "id": "onlyname",
-                "label": "Single Name"
+                "id": "rowspan",
+                "label": "Number of rowspan"
               },
               {
                 "type": "text",
-                "id": "name",
-                "label": "Name"
+                "id": "key",
+                "label": "Key Name"
               },
               {
                 "type": "text",
-                "id": "info",
-                "label": "Info"
+                "id": "info_1",
+                "label": "Info 1"
+              },
+              {
+                "type": "text",
+                "id": "info_2",
+                "label": "Info 2"
+              },
+              {
+                "type": "text",
+                "id": "info_3",
+                "label": "Info 3"
+              },
+              {
+                "type": "text",
+                "id": "info_4",
+                "label": "Info 4"
+              },
+              {
+                "type": "text",
+                "id": "info_5",
+                "label": "Info 5"
               }
             ]
           }
