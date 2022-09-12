@@ -32,7 +32,7 @@
   {%- endif -%}
 
   <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-    <div class="grid__item product__media-wrapper">
+{% comment %}     <div class="grid__item product__media-wrapper">
       <media-gallery id="MediaGallery-{{ section.id }}" role="region" {% if section.settings.enable_sticky_info %}class="product__media-gallery"{% endif %} aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="{{ section.settings.gallery_layout }}">
         <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
         <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
@@ -197,6 +197,52 @@
           </slider-component>
         {%- endif -%}
       </media-gallery>
+    </div> {% endcomment %}
+    <div class="grid__item product__media-wrapper">
+      {% if product.images != null %}
+        <div class="carousel product__image-slider" role="document" aria-label="{{ 'products.modal.label' | t }}" tabindex="0">
+          {%- for media in product.media -%}
+          <div class="carousel-cell">
+            {% if media.media_type == "video" %}
+            {{ media | media_tag: image_size: "720x", autoplay: true, loop: loop, controls: true, preload: "none", autoplay: true, height: "100%", width: "100%" }}
+            {% else %}
+            <img data-flickity-lazyload-srcset="
+                                                {{ media | img_url: '1440x' }} 1440w,
+                                                {{ media | img_url: '1080x' }} 1080w,
+                                                {{ media | img_url: '720x' }} 767w,
+                                                {{ media | img_url: '480x' }} 480w"
+                 sizes="(min-width: 480px) 1440px, 1080px, 767px, 480px"
+                 data-flickity-lazyload-src="{{ media | img_url: 'master' }}"
+                 alt="{{ media.alt | escape }}"
+                 border="0"
+                 data-media-id="{{ media.id }}" />
+            {% endif %}
+          </div>
+          {%- endfor -%}
+          <!--- Coded by jotting.com --->
+        </div>
+        {% if product.images.size > 1 %}
+        <div class="carousel product__image-thumbnail">
+          {%- for media in product.media -%}
+          <div class="carousel-cell">
+            <img data-flickity-lazyload-srcset="
+                                                {{ media | img_url: '1440x' }} 1440w,
+                                                {{ media | img_url: '1080x' }} 1080w,
+                                                {{ media | img_url: '720x' }} 767w,
+                                                {{ media | img_url: '480x' }} 480w"
+                 sizes="(min-width: 480px) 1440px, 1080px, 767px, 480px"
+                 data-flickity-lazyload-src="{{ media | img_url: 'master' }}"
+                 alt="{{ media.alt | escape }}"
+                 border="0"
+                 data-media-id="{{ media_id }}" />
+          </div>
+          {%- endfor -%}
+          <!--- Coded by jotting.com --->
+        </div>
+        {% endif %}
+        {% else %}
+        {{ 'product-1' | placeholder_svg_tag }}
+        {% endif %}
     </div>
     
     <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}">
