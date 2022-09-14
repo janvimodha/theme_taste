@@ -1,110 +1,158 @@
-<div class="feature-table-section flex flex-wrap mdscreen1:flex-col {{ section.settings.extra_class }}">
-  <div class="feature-hightleft bg-dark_blue w-full mdscreen2:w-1/2 px-30 py-40 mdscreen2:p-50 small_desktop:p-80">
-    <div class="feature-top {% if section.settings.heading != blank %} mb-50 {% endif%}">
-      <div class="section-title">
-        <h2 class="mb-35 text-white">{{ section.settings.heading }}</h2>
-      </div>
-    </div>
-  </div>
+<div class="client-satisfaction py-40 small_desktop:py-80 client-img {{ section.settings.extra_class }} {% if section.settings.image1 != blank %}{{ section.settings.bg_gradiant }}{% endif %}" style="background-color:{{section.settings.color}}; color:{{ section.settings.color_text }}; background-image:url('{% if section.settings.image1 !=blank %}{{ section.settings.image1 | img_url:'master' }}{% endif %}');">
+  <div class="container">
+  <div class="clientsatis_wrapper {% if section.settings.image1 != blank %}relative{% endif %}">
+    <div class="clientinner-servwrapp">
       
-{% if section.settings.only_show_image == false %}
-   <div class="feature-hightright flex flex-col justify-center bg-blue w-full mdscreen2:w-1/2 px-20 pt-40 pb-30 mdscreen2:p-50 small_desktop:p-80">
-        <div class="block-title">
-            <h2 class="section-title mb-20 text-white pl-10">{{section.settings.title}}</h2>
+      {% if section.settings.heading != blank %}
+        <div class="section-title mb-20">
+          <{{ section.settings.heading_tag }} class="content-title text-center {{ section.settings.heading_case }} {% unless section.settings.color == "#050b42" or section.settings.color == ""  %} text-black {% else %} text-white {% endunless %}">{{section.settings.heading}}</{{ section.settings.heading_tag }}>
         </div>
-        <div class="feature-table-block">
-          <table class="feature-table">
-            {% for block in section.blocks %}
-                  
-                  {% if block.type == 'simple' %}
+      {% endif %}
 
-                      {% if block.settings.heading != blank %}
-                        <tr class="table-listtr{{ forloop.index }}">
-                          <th>{{ block.settings.heading }}</th>
-                          <td>{{ block.settings.info }}</td>
-                        </tr>
-                      {% endif %}
-
-                  {% elsif block.type == 'nameonly' %}
-
-                      {% if block.settings.onlyname != blank %}
-                        <tr class="table-listtr{{ forloop.index }}"><th colspan="2">{{ block.settings.onlyname }}</th></tr>
-                      {% endif %}
-                     
-
-                  {% endif %}
-            {% endfor %}
-          </table>
-        </div>
-   </div>
-
-   {% else %}
-
-    <div class="feature-imgright w-full mdscreen2:w-1/2">
-      {% if section.settings.image != blank %}
-      <img class="w-full h-full" src="{{ section.settings.image | img_url:'master' }}">
+      <div class="content_wrapper  {% unless section.settings.color == "#050b42" or section.settings.color == ""  %} text-body {% else %} text-white {% endunless %}  {{ section.settings.content_position }}">
+        {{section.settings.info}}
+      </div>
+      <div class="btn-content-block{% if section.settings.button_label != blank %} mt-20 {% endif %}">
+      {% if section.settings.button_label != blank %}
+        <a class="btnred" href="{{section.settings.button_link}}">{{section.settings.button_label}}</a>
+      {% endif %}
+      </div>
+      {% if section.settings.info_1 != blank %}
+      <div class="content_wrapper  {% unless section.settings.color == "#050b42" or section.settings.color == ""  %} text-body {% else %} text-white {% endunless %}  {{ section.settings.content_position }}">
+        {{section.settings.info_1}}
+      </div>
       {% endif %}
     </div>
-    {% endif %}
+  </div>
 </div>
-
+</div>
 {% schema %}
-      {
-        "name": "info-text-table",
-        "class":"section",
-        "settings": [
+{
+  "name": "Info text",
+  "tag": "section",
+  "class": "section",
+  "settings": [
         {
           "type": "text",
           "id": "extra_class",
-          "label": "Extra class"
+          "label": "Extra Class"
         },
-          {
-            "type": "text",
-            "id": "heading",
-            "label": "Heading"
-          },
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Title"
-          }
-         
-        ],
-        "blocks": [
-          {
-            "type": "simple",
-            "name": "Simple Table",
-            "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type":"select",
+          "id":"heading_tag",
+          "label":"Heading Tag",
+          "options":[
               {
-                "type": "text",
-                "id": "heading",
-                "label": "Name"
+                  "value":"h2",
+                  "label":"h2"
               },
               {
-                "type": "text",
-                "id": "info",
-                "label": "Information"
+                  "value":"h4",
+                  "label":"h4"
               }
-            
-            ]
-            
-          },
-          {
-            "type": "nameonly",
-            "name": "Name only Table",
-            "settings": [
+          ],
+          "default": "h2"
+        },
+        {
+            "type":"select",
+            "id":"heading_case",
+            "label":"Heading Case",
+            "options":[
+                {
+                  "value":"capitalize",
+                  "label":"Capitalize"
+                },
+                {
+                  "value":"uppercase",
+                  "label":"Uppercase"
+                }
+            ],
+            "default": "capitalize"
+        },
+        {
+            "type":"select",
+            "id":"content_position",
+            "label":"Position",
+            "options":[
+                {
+                  "value":"center",
+                  "label":"Center"
+                },
+                {
+                  "value":"left",
+                  "label":"Left"
+                },
+                {
+                  "value":"right",
+                  "label":"Right"
+                }
+            ],
+            "default": "center"
+        },
+        
+        {
+          "type": "html",
+          "id": "info",
+          "label": "Information"
+        },
+        { 
+          "type":"text",
+          "id":"button_label",
+          "label":"Button label"
+        },
+        {
+          "type":"url",
+          "id":"button_link",
+          "label":"Button link"
+        },
+        {
+          "type": "html",
+          "id": "info_1",
+          "label": "Other Information"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Background-color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "color_text",
+          "label": "Color",
+          "default": "#000"
+        },
+        {
+          "type":"image_picker",
+          "id":"image1",
+          "label":"Background Image"
+        },
+        {
+          "type":"select",
+          "id":"bg_gradiant",
+          "label":"Background Effect",
+          "options":[
               {
-                "type": "text",
-                "id": "onlyname",
-                "label": "Single Name"
+                "value":"sec-bg-blc-gradiant",
+                "label":"Black"
+              },
+              {
+                "value":"section-bg-gradiant",
+                "label":"Blue"
               }
-            ]
-          }
-          
-        ],"presets": [
-    {
-      "name": "Info-Text-table"
-    }
-  ]
-      }
-    {% endschema %}
+          ],
+          "default": "section-bg-gradiant"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Info text"
+        }
+      ]
+}
+{% endschema %}
