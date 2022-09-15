@@ -130,9 +130,16 @@ var items = $(".list-wrapper .list-item");
             var showFrom = perPage * (pageNumber - 1);
             var showTo = showFrom + perPage;
             items.hide().slice(showFrom, showTo).show();
-            $("#div1").delay("fast").fadeIn(); 
         }
     });
+  $(function() {
+    $(selector).pagination({
+        items: 100,
+        itemsOnPage: 10,
+        cssStyle: 'light-theme',
+        transition-delay: 1s
+    });
+});
 </script>
 {% schema %}
       {
