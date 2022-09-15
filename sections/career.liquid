@@ -13,27 +13,39 @@
           </div>
         {% endif %}
       </div>
-  
+
+   
     <div class="list-wrapper">
-      {%- paginate blocks by 5 -%}
       {% for block in section.blocks %}
-      
-        <ul class="list-item career-artical-block py-30 lg:py-55 border-b border-solid border-body">
+      <div class="list-item">
+        <div class="career-artical-block py-30 lg:py-55 border-b border-solid border-body">
           {% if block.settings.main_title != blank %}
-            <li class="job-title mb-20 capitalize">
+            <div class="job-title mb-20 capitalize">
                 <h3>{{ block.settings.main_title }}</h3>
-                <h4 class="job-sub-title text-body mb-20 capitalize">{{ block.settings.sub_title }}</h4>
-                 <p class="content_wrapper job-content ">{{ block.settings.job_content }}</p>
-               <a class="btnred hover:border-red hover:text-red" href="{{ block.settings.job_button_link }}">{{ block.settings.job_button }}</a>
-            </li>
+            </div>
           {% endif %}
-        </ul>
-      
+
+          {% if block.settings.sub_title != blank %}
+            <div class="job-sub-title text-body mb-20 capitalize">
+                <h4>{{ block.settings.sub_title }}</h4>
+            </div>
+          {% endif %}
+
+          {% if block.settings.job_content != blank %}
+            <div class="content_wrapper job-content ">
+                {{ block.settings.job_content }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.job_button != blank %}
+            <div class="job-button w-fit mx-auto mt-20">
+                <a class="btnred hover:border-red hover:text-red" href="{{ block.settings.job_button_link }}">{{ block.settings.job_button }}</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
       {% endfor %}
-        {{ paginate | default_pagination: next: 'Older', previous: 'Newer' }}
-        {%- endpaginate -%}
     </div>
- 
 
       <div id="pagination-container"></div>
        <!-- show pagination links here -->  
