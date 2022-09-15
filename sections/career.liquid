@@ -1,12 +1,226 @@
+<div class="job-details-mainblock  py-40 small_desktop:py-80 {{ section.settings.extra_class }}  {{ section.settings.content_position }}">
+  <div class="container large_desktop:px-0">
+    <div class="jobdetail-innerblock max-w-full large_desktop:max-w-[85%] mx-auto">
+      <div class="career-artical-block pb-30 lg:pb-55 border-b border-solid border-body">
+        {% if section.settings.heading != blank %}
+          <div class="carerr-title mb-20 capitalize">
+            <h2>{{ section.settings.heading }}</h2>
+          </div>
+        {% endif %}
+        {% if section.settings.content != blank %}
+          <div class="content_wrapper">
+            {{ section.settings.content }}
+          </div>
+        {% endif %}
+      </div>
+
+   
+    <div class="list-wrapper">
+      {% for block in section.blocks %}
+      <div class="list-item">
+        <div class="career-artical-block py-30 lg:py-55 border-b border-solid border-body">
+          {% if block.settings.main_title != blank %}
+            <div class="job-title mb-20 capitalize">
+                <h3>{{ block.settings.main_title }}</h3>
+            </div>
+          {% endif %}
+
+          {% if block.settings.sub_title != blank %}
+            <div class="job-sub-title text-body mb-20 capitalize">
+                <h4>{{ block.settings.sub_title }}</h4>
+            </div>
+          {% endif %}
+
+          {% if block.settings.job_content != blank %}
+            <div class="content_wrapper job-content ">
+                {{ block.settings.job_content }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.job_button != blank %}
+            <div class="job-button w-fit mx-auto mt-20">
+                <a class="btnred hover:border-red hover:text-red" href="{{ block.settings.job_button_link }}">{{ block.settings.job_button }}</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+      <div id="pagination-container"></div>
+       <!-- show pagination links here -->  
+      
+    </div>
+  </div>
+</div>
+<style>
+  .list-wrapper {
+	padding: 15px;
+	overflow: hidden;
+}
+
+.list-item {
+	border: 1px solid #EEE;
+	background: #FFF;
+	margin-bottom: 10px;
+	padding: 10px;
+	box-shadow: 0px 0px 10px 0px #EEE;
+}
+
+.list-item h4 {
+	color: #FF7182;
+	font-size: 18px;
+	margin: 0 0 5px;	
+}
+
+.list-item p {
+	margin: 0;
+}
+
+.simple-pagination ul {
+	margin: 0 0 20px;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+
+.simple-pagination li {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.simple-pagination li a,
+.simple-pagination li span {
+	color: #666;
+	padding: 5px 10px;
+	text-decoration: none;
+	border: 1px solid #EEE;
+	background-color: #FFF;
+	box-shadow: 0px 0px 10px 0px #EEE;
+}
+
+.simple-pagination .current {
+	color: #FFF;
+	background-color: #FF7182;
+	border-color: #FF7182;
+}
+
+.simple-pagination .prev.current,
+.simple-pagination .next.current {
+	background: #e04e60;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
+<script>
+  // jQuery Plugin: http://flaviusmatis.github.io/simplePagination.js/
+
+var items = $(".list-wrapper .list-item");
+    var numItems = items.length;
+    var perPage = 4;
+
+    items.slice(perPage).hide();
+
+    $('#pagination-container').pagination({
+        items: numItems,
+        itemsOnPage: perPage,
+        prevText: "&laquo;",
+        nextText: "&raquo;",
+        onPageClick: function (pageNumber) {
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+            items.hide().slice(showFrom, showTo).show();
+        }
+    });
+</script>
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
-{% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
+      {
+        "name": "Career",
+        "class":"section",
+        "settings": [
+          {
+            "type": "text",
+            "id": "extra_class",
+            "label": "Extra Class"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default":"Our Current Openings"
+          },
+          {
+            "type": "html",
+            "id": "content",
+            "label": "Content",
+            "default":"We are happy to accept resumes for positions at any time so please send us your information as we have other positions opening up as we grow. Applicants need to have a technical degree and experience in control systems or related fields."
+          },
+          {
+            "type":"select",
+            "id":"content_position",
+            "label":"Position",
+            "options":[
+                {
+                  "value":"center",
+                  "label":"Center"
+                },
+                {
+                  "value":"left",
+                  "label":"Left"
+                },
+                {
+                  "value":"right",
+                  "label":"Right"
+                }
+            ],
+            "default": "center"
+          }
+        ],
+        "blocks": [
+          {
+            "type": "job-details",
+            "name": "Job Details",
+            "settings": [
+              {
+                "type": "text",
+                "id": "main_title",
+                "label": "Main Title"
+              },
+              {
+                "type": "text",
+                "id": "sub_title",
+                "label": "Sub Title"
+              },
+              {
+                "type": "html",
+                "id": "job_content",
+                "label": "Job Content"
+              },
+              {
+                "type": "text",
+                "id": "job_button",
+                "label": "Job Button"
+              },
+              {
+                "type": "url",
+                "id": "job_button_link",
+                "label": "Job Button Link"
+              }
+            ]
+            
+          }
+        ],
+        "presets": [
+            {
+              "name": "Career"
+            }
+        ]
+      }
+    {% endschema %}
+    
+    {% stylesheet %}
+    {% endstylesheet %}
+    
+    {% javascript %}
+    {% endjavascript %}
+    
