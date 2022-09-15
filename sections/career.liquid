@@ -15,7 +15,7 @@
       </div>
 
    
-    <div class="list-wrapper">
+    <div class="list-wrapper" id="div1"> 
       {% for block in section.blocks %}
       <div class="list-item">
         <div class="career-artical-block py-30 lg:py-55 border-b border-solid border-body">
@@ -130,6 +130,7 @@ var items = $(".list-wrapper .list-item");
             var showFrom = perPage * (pageNumber - 1);
             var showTo = showFrom + perPage;
             items.hide().slice(showFrom, showTo).show();
+            $("#div1").delay("fast").fadeIn(); 
         }
     });
 </script>
