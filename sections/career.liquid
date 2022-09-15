@@ -14,9 +14,8 @@
         {% endif %}
       </div>
 
-   
+{%- paginate section.blocks by 5 -%}   
     <div class="list-wrapper">
-      {%- paginate section.blocks by 5 -%}
       {% for block in section.blocks %}
       <div class="list-item">
         <div class="career-artical-block py-30 lg:py-55 border-b border-solid border-body">
@@ -46,8 +45,9 @@
         </div>
       </div>
       {% endfor %}
-        {%- endpaginate -%}
+        
     </div>
+  {%- endpaginate -%}
 
       <div id="pagination-container"></div>
        <!-- show pagination links here -->  
