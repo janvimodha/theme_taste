@@ -16,8 +16,8 @@
   
     <div class="list-wrapper">
       {% for block in section.blocks %}
-      <div class="list-item">
-        <div class="career-artical-block py-30 lg:py-55 border-b border-solid border-body">
+      <ul class="list-item">
+        <li class="career-artical-block py-30 lg:py-55 border-b border-solid border-body">
           {% if block.settings.main_title != blank %}
             <div class="job-title mb-20 capitalize">
                 <h3>{{ block.settings.main_title }}</h3>
@@ -41,8 +41,8 @@
                 <a class="btnred hover:border-red hover:text-red" href="{{ block.settings.job_button_link }}">{{ block.settings.job_button }}</a>
             </div>
           {% endif %}
-        </div>
-      </div>
+        </li>
+      </ul>
       {% endfor %}
         
     </div>
