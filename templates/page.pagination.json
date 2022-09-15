@@ -39,12 +39,23 @@
             "job_button": "click here",
             "job_button_link": ""
           }
+        },
+        "cd8f49f7-22a6-43ea-8304-b25b9c39e1e0": {
+          "type": "job-details",
+          "settings": {
+            "main_title": "dfdfd",
+            "sub_title": "dfdfd",
+            "job_content": "dfdgdg",
+            "job_button": "ddd",
+            "job_button_link": ""
+          }
         }
       },
       "block_order": [
         "44900776-5898-4c02-a5a0-dbcfe2122724",
         "8ecc0087-9bae-474d-8479-ec9c79ce1c53",
-        "bf4e1475-c124-40f5-9a87-2d06682edddb"
+        "bf4e1475-c124-40f5-9a87-2d06682edddb",
+        "cd8f49f7-22a6-43ea-8304-b25b9c39e1e0"
       ],
       "settings": {
         "extra_class": "",
