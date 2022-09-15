@@ -3,10 +3,59 @@
     "main": {
       "type": "main-page",
       "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1663236682b01b3354": {
+      "type": "career",
+      "blocks": {
+        "44900776-5898-4c02-a5a0-dbcfe2122724": {
+          "type": "job-details",
+          "settings": {
+            "main_title": "this is main title",
+            "sub_title": "second title",
+            "job_content": "desription of page",
+            "job_button": "click here",
+            "job_button_link": ""
+          }
+        },
+        "8ecc0087-9bae-474d-8479-ec9c79ce1c53": {
+          "type": "job-details",
+          "settings": {
+            "main_title": "second main title",
+            "sub_title": "title",
+            "job_content": "page content",
+            "job_button": "click here",
+            "job_button_link": ""
+          }
+        },
+        "bf4e1475-c124-40f5-9a87-2d06682edddb": {
+          "type": "job-details",
+          "settings": {
+            "main_title": "third main title",
+            "sub_title": "title",
+            "job_content": "page content",
+            "job_button": "click here",
+            "job_button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "44900776-5898-4c02-a5a0-dbcfe2122724",
+        "8ecc0087-9bae-474d-8479-ec9c79ce1c53",
+        "bf4e1475-c124-40f5-9a87-2d06682edddb"
+      ],
+      "settings": {
+        "extra_class": "",
+        "heading": "Our Current Openings",
+        "content": "We are happy to accept resumes for positions at any time so please send us your information as we have other positions opening up as we grow. Applicants need to have a technical degree and experience in control systems or related fields.",
+        "content_position": "center"
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "1663236682b01b3354"
   ]
 }
