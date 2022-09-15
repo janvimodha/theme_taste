@@ -15,6 +15,7 @@
       </div>
   
     <div class="list-wrapper">
+      {%- paginate section.blocks by 5 -%}
       {% for block in section.blocks %}
       
         <ul class="list-item career-artical-block py-30 lg:py-55 border-b border-solid border-body">
@@ -29,7 +30,8 @@
         </ul>
       
       {% endfor %}
-        
+        {{ paginate | default_pagination: next: 'Older', previous: 'Newer' }}
+        {%- endpaginate -%}
     </div>
  
 
