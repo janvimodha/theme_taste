@@ -63,10 +63,17 @@
         "content": "We are happy to accept resumes for positions at any time so please send us your information as we have other positions opening up as we grow. Applicants need to have a technical degree and experience in control systems or related fields.",
         "content_position": "center"
       }
+    },
+    "16633285662336e4c3": {
+      "type": "demo-script",
+      "settings": {
+        "button_label": "Click Here To Display Date"
+      }
     }
   },
   "order": [
     "main",
-    "1663236682b01b3354"
+    "1663236682b01b3354",
+    "16633285662336e4c3"
   ]
 }
