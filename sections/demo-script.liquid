@@ -1,7 +1,25 @@
 {% schema %}
   {
-    "name": "Section name",
-    "settings": []
+    "name": "Demo Script",
+    "class": "script-ctm",
+    "settings": [
+      {
+        "type":"html",
+        "id":"date",
+        "label":"Date"
+      },
+      {
+        "type":"text",
+        "id":"button_label",
+        "label":"Button Text",
+        "default":"Click Here To Display Date"
+      }
+    ],
+    "presets":[
+      {
+        "name":"Demo Script"
+      }
+    ]
   }
 {% endschema %}
 
