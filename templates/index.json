@@ -329,29 +329,45 @@
         "product": ""
       }
     },
-    "166186251030945760": {
+    "1663572576b85cee80": {
       "type": "cards",
       "blocks": {
-        "b6ec58d8-aa08-42d0-b86a-c6a1c1067b40": {
-          "type": "complex",
+        "1663572576946a8a9d-0": {
+          "type": "image",
           "settings": {
-            "onlyname": "tt",
-            "name": "ttt",
-            "info": "ttttt"
+            "image": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp",
+            "tablet_image": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp",
+            "mobile_image": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "subheading": "",
+            "title": "Slide title",
+            "content": "<p>Tell your story<\/p>",
+            "listitem": "",
+            "listitemcols": false,
+            "custom_html": "",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "shop",
+            "link": "#",
+            "title_second": "Slide title",
+            "content_second": "Tell your story",
+            "content_position_second": "middle_center"
           }
         }
       },
       "block_order": [
-        "b6ec58d8-aa08-42d0-b86a-c6a1c1067b40"
+        "1663572576946a8a9d-0"
       ],
       "settings": {
-        "heading": "xyz",
-        "content": "",
-        "heading1": "",
-        "content1": "",
-        "title": "",
-        "subtitle": "",
-        "checkbox": false
+        "edge_to_edge": false,
+        "section_size": "preserve_ratio",
+        "carousel_effect": "slide",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "button_text": "Our products"
       }
     }
   },
@@ -366,6 +382,6 @@
     "16596077206ce077e0",
     "16607448703de80bfc",
     "16611638085e323e1a",
-    "166186251030945760"
+    "1663572576b85cee80"
   ]
 }
