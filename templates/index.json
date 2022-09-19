@@ -356,10 +356,36 @@
             "content_second": "Tell your story",
             "content_position_second": "middle_center"
           }
+        },
+        "0b76d109-69e5-4180-9c95-4862680c905d": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Ratio-Eight-Brewing-White_540x_840f29ed-51eb-462a-b4e5-26be0cb1aebd.webp",
+            "tablet_image": "shopify:\/\/shop_images\/Ratio-Eight-Brewing-White_540x_840f29ed-51eb-462a-b4e5-26be0cb1aebd.webp",
+            "mobile_image": "shopify:\/\/shop_images\/Ratio-Eight-Brewing-White_540x_840f29ed-51eb-462a-b4e5-26be0cb1aebd.webp",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "subheading": "",
+            "title": "Slide title",
+            "content": "<p>Tell your story<\/p>",
+            "listitem": "",
+            "listitemcols": false,
+            "custom_html": "",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "all products",
+            "link": "#",
+            "title_second": "Slide title",
+            "content_second": "Tell your story",
+            "content_position_second": "middle_center"
+          }
         }
       },
       "block_order": [
-        "1663572576946a8a9d-0"
+        "1663572576946a8a9d-0",
+        "0b76d109-69e5-4180-9c95-4862680c905d"
       ],
       "settings": {
         "edge_to_edge": false,
