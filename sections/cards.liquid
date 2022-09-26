@@ -30,11 +30,13 @@
         {% endif %}
       {% endfor %}
 
-  
-       
-      
   </div>
- 
+  
+ {% if section.settings.zigzag_other_content %}
+   <div class="zigzag_other_content">
+   <p>{{ section.settings.zigzag_other_content }}</p>
+   </div>
+   {% endif %}
 </div>
 
 {% schema %}

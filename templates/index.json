@@ -338,7 +338,7 @@
             "zigzag_heading": "h",
             "zigzag_desc": "hhh",
             "zigzag_img": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp",
-            "image_aligment": "image_right"
+            "image_aligment": "image_left"
           }
         }
       },
@@ -347,7 +347,8 @@
       ],
       "settings": {
         "zigzag_title": "f",
-        "zigzag_content": "f"
+        "zigzag_content": "f",
+        "zigzag_other_content": ""
       }
     }
   },
