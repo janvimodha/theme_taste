@@ -332,68 +332,23 @@
     "1663572576b85cee80": {
       "type": "cards",
       "blocks": {
-        "1663572576946a8a9d-0": {
+        "3899a42f-fcd4-4338-95bb-01428a00cb8e": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp",
-            "tablet_image": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp",
-            "mobile_image": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp",
-            "show_overlay": false,
-            "overlay_opacity": 30,
-            "text_color": "#ffffff",
-            "subheading": "",
-            "title": "Slide title",
-            "content": "<p>Tell your story<\/p>",
-            "listitem": "",
-            "listitemcols": false,
-            "custom_html": "",
-            "content_position": "middle_center",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "button_text": "shop",
-            "link": "#",
-            "title_second": "Slide title",
-            "content_second": "Tell your story",
-            "content_position_second": "middle_center"
-          }
-        },
-        "0b76d109-69e5-4180-9c95-4862680c905d": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Ratio-Eight-Brewing-White_540x_840f29ed-51eb-462a-b4e5-26be0cb1aebd.webp",
-            "tablet_image": "shopify:\/\/shop_images\/Ratio-Eight-Brewing-White_540x_840f29ed-51eb-462a-b4e5-26be0cb1aebd.webp",
-            "mobile_image": "shopify:\/\/shop_images\/Ratio-Eight-Brewing-White_540x_840f29ed-51eb-462a-b4e5-26be0cb1aebd.webp",
-            "show_overlay": false,
-            "overlay_opacity": 30,
-            "text_color": "#ffffff",
-            "subheading": "",
-            "title": "Slide title",
-            "content": "<p>Tell your story<\/p>",
-            "listitem": "",
-            "listitemcols": false,
-            "custom_html": "",
-            "content_position": "middle_center",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "button_text": "all products",
-            "link": "#",
-            "title_second": "Slide title",
-            "content_second": "Tell your story",
-            "content_position_second": "middle_center"
+            "image_demo": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp"
           }
         }
       },
       "block_order": [
-        "1663572576946a8a9d-0",
-        "0b76d109-69e5-4180-9c95-4862680c905d"
+        "3899a42f-fcd4-4338-95bb-01428a00cb8e"
       ],
       "settings": {
-        "edge_to_edge": false,
-        "section_size": "preserve_ratio",
-        "carousel_effect": "slide",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "button_text": "Our products"
+        "intro_heading": "",
+        "intro_title": "",
+        "image_title": "",
+        "description": "",
+        "content_one": "",
+        "title_text": ""
       }
     }
   },
