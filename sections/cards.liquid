@@ -36,16 +36,26 @@
       {% endif %}
 
       <div>
-        {% if section.settings.image_demo != blank %}
-        <img src="{{ block.settings.image_demo | img_url : 'master' }}" />
+        {% for block in section.blocks %}
+      {% if block.type == 'image' %}
+        <div>
+       <img src="{{ block.settings.image_demo | img_url : 'master' }}" />
+        </div>
         {% endif %}
+          {% endfor %}
       </div>
 
 
 
     <div>
+      {% for block in section.blocks %}
+      {% if block.type == "title" %}
+        <div>
       <p>{{ block.settings.image_detail }}</p>
       <p>{{ block.settings.image_content }}</p>
+        </div>
+        {% endif %}
+        {% endfor %}
     </div>
   
 </div>
