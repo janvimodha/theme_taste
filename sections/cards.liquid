@@ -1,138 +1,80 @@
 <div>
-   {% if section.settings.intro_heading != blank %}
-    <div>
-        <h6>{{ section.settings.intro_heading }}</h6>
-    </div>
-   {% endif %}
-    
-    {% if section.settings.intro_title !=blank %}
-      <div>
-        <h4>{{ section.settings.intro_title }}</h4>
-      </div>
-    {% endif %}
+  <div>
+    <h5>{{ section.settings.zigzag_title }}</h5>
+    <p>{{ section.settings.zigzag_content }}</p>
+  </div>
 
-    {% if section.settings.intro_main_image !=blank %} 
-    <div>
-          <img src="{{ section.settings.intro_main_image | img_url : 'master' }}" alt="image.alt | t" />
-    </div>
-    {% endif %}
-
-    <div>
-         <h5>{{ section.settings.image_title }}</h5>
-    </div>
-  
-    {% if section.settings.intro_second_image != blank %}
-    <div>
-        <p>{{ section.settings.description }}</p>
-        <img src="{{ section.settings.intro_second_image | img_url : 'master' }}" alt="image.alt | t" />
-        <p>{{ section.settings.content_one }}</p>
-    </div>
-    {% endif %}
-
-    {% if section.settings.title_text != blank %}
-      <div>
-        <h4>{{ section.settings.title_text }}</h4>
-      </div>
-      {% endif %}
-
-      <div>
-        {% for block in section.blocks %}
-      {% if block.type == 'image' %}
+  <div >
+    {% for block in section.blocks %}
+      {% if block.type == "zig-zag"%}
         <div>
-       <img src="{{ block.settings.image_demo | img_url : 'master' }}" />
+          <h4>{{ block.settings.zigzag_heading }}</h4>
+          <p>{{ block.settings.zigzag_desc }}</p>
         </div>
         {% endif %}
-          {% endfor %}
-      </div>
+      {% endfor %}
 
-
-
-    <div>
-      {% for block in section.blocks %}
-      {% if block.type == "title" %}
+    {% for block in section.blocks %}
+      {% if block.type == "zig-zag"%}
         <div>
-      <p>{{ block.settings.image_detail }}</p>
-      <p>{{ block.settings.image_content }}</p>
+        <img src="{{ block.settings.zigzag_img | img_url : 'master' }}" alt="image.alt | t" />
         </div>
         {% endif %}
-        {% endfor %}
-    </div>
-  
+      {% endfor %}
+  </div>
 </div>
-
-
 
 {% schema %}
   {
-    "name": "Introduction Section",
-    "class": "adv-intro-section",
+    "name": "Zig-zag",
+    "class":"adv-zigzag",
     "settings": [
       {
-        "type":"text",
-        "id":"intro_heading",
-        "label": "Heading"
-      },
-      {
         "type":"html",
-        "id":"intro_title",
+        "id":"zigzag_title",
         "label":"Title"
       },
       {
-        "type":"image_picker",
-        "id":"intro_main_image",
-        "label":"Image"
-      },
-      {
-        "type":"text",
-        "id":"image_title",
-        "label":"Image Title"
-      },
-      {
         "type":"html",
-        "id":"description",
-        "label":"Description"
-      },
-      {
-        "type":"image_picker",
-        "id":"intro_second_image",
-        "label":"Content Image"
-      },
-      {
-        "type":"html",
-        "id":"content_one",
-        "label":"Product Detail"
-      },
-      {
-        "type":"html",
-        "id":"title_text",
-        "label":"Title"
+        "id":"zigzag_content",
+        "label":"Content"
       }
     ],
     "blocks":[
       {
-        "name":"Image",
-        "type":"image",
+        "name":"zig zag",
+        "type":"zig-zag",
         "settings":[
           {
-            "type":"image_picker",
-            "id":"image_demo",
-            "label":"Image"
-          }
-        ]
-      },
-      {
-        "type":"title",
-        "name":"Title",
-        "settings":[
-          {
-            "type": "html",
-            "id": "image_detail",
-            "label": "Text"
+            "type":"text",
+            "id":"zigzag_heading",
+            "label":"Heading"
           },
           {
             "type":"html",
-            "id":"image_content",
-            "label":"Content"
+            "id":"zigzag_desc",
+            "label":"Description"
+          },
+          {
+            "type":"image_picker",
+            "id":"zigzag_img",
+            "label":"Image"
+          },
+          {
+            "type":"select",
+            "id":"image_aligment",
+            "options":[
+              {
+                "value": "image_left",
+                "label": "Left"
+              },
+              {
+                "value": "image_right",
+                "label": "Right"
+              }
+            ],
+            "label":"Image Alignment",
+            "default":"image_left"
           }
         ]
       }
