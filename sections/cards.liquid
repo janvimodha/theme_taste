@@ -1,27 +1,40 @@
-<div>
+<div class="advs_section_left"> 
+  {% if section.settings.zigzag_title != blank %}
   <div>
     <h5>{{ section.settings.zigzag_title }}</h5>
     <p>{{ section.settings.zigzag_content }}</p>
   </div>
+   {% endif %}
 
-  <div >
+  <div class="zig_zag_ctm">
     {% for block in section.blocks %}
-      {% if block.type == "zig-zag"%}
-        <div>
+        {% capture img_placement %}
+          <div class="img_wrapper">
+             <img src="{{ block.settings.zigzag_img | img_url : 'master' }}" alt="image.alt | t" />
+          </div>
+       {% endcapture %}
+      {% if block.type == "zig-zag" %}
+        {% if block.settings.image_aligment == 'image_left' %}
+          {{ img_wrapper }}
+        {% endif %}
+       
+        <div class="zig_zag_content">
           <h4>{{ block.settings.zigzag_heading }}</h4>
           <p>{{ block.settings.zigzag_desc }}</p>
         </div>
+
+        {% if block.settings.image_aligment == 'image_right' %}
+          {{ img_wrapper }}
+        {% endif %}
+    
         {% endif %}
       {% endfor %}
 
-    {% for block in section.blocks %}
-      {% if block.type == "zig-zag"%}
-        <div>
-        <img src="{{ block.settings.zigzag_img | img_url : 'master' }}" alt="image.alt | t" />
-        </div>
-        {% endif %}
-      {% endfor %}
+  
+       
+      
   </div>
+ 
 </div>
 
 {% schema %}
@@ -38,6 +51,11 @@
         "type":"html",
         "id":"zigzag_content",
         "label":"Content"
+      },
+      {
+        "type":"html",
+        "id":"zigzag_other_content",
+        "label":"Other Content"
       }
     ],
     "blocks":[
