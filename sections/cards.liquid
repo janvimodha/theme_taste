@@ -4,7 +4,15 @@
       <h2>{{ section.settings.icon_main_heading }}</h2>
       </div>
     {% endif %}
-
+    
+  {% for block in section.blocks %}
+      {% if block.type == "image" %}
+        <div class="zigzag_main_image">
+        <img src="{{ block.settings.zigzag_image_demo | img_url : 'master' }}" alt="image.alt | t" />
+        </div>
+        {% endif %}
+    {% endfor %}
+        
   <div class="zigzag_icon_display">
     {% for block in section.blocks %}
         {% capture icon_img_placement %}
