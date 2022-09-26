@@ -15,7 +15,7 @@
        {% endcapture %}
       {% if block.type == "zig-zag" %}
         {% if block.settings.image_aligment == 'image_left' %}
-          {{ img_wrapper }}
+          {{ img_placement }}
         {% endif %}
        
         <div class="zig_zag_content">
@@ -24,7 +24,7 @@
         </div>
 
         {% if block.settings.image_aligment == 'image_right' %}
-          {{ img_wrapper }}
+          {{ img_placement }}
         {% endif %}
     
         {% endif %}
