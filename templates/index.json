@@ -337,10 +337,18 @@
           "settings": {
             "image_demo": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp"
           }
+        },
+        "4eafb86c-b996-431b-9072-04d2d054321f": {
+          "type": "title",
+          "settings": {
+            "image_detail": "title",
+            "image_content": "content"
+          }
         }
       },
       "block_order": [
-        "3899a42f-fcd4-4338-95bb-01428a00cb8e"
+        "3899a42f-fcd4-4338-95bb-01428a00cb8e",
+        "4eafb86c-b996-431b-9072-04d2d054321f"
       ],
       "settings": {
         "intro_heading": "",
