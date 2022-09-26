@@ -1,88 +1,101 @@
-<div class="advs_section_left"> 
-  {% if section.settings.zigzag_title != blank %}
-  <div>
-    <h5>{{ section.settings.zigzag_title }}</h5>
-    <p>{{ section.settings.zigzag_content }}</p>
-  </div>
-   {% endif %}
+<div class="advs_section_left">
+  {% if section.setting.icon_main_heading != '' %}
+      <div class="icon_zigzag_main">
+      <h2>{{ section.settings.icon_main_heading }}</h2>
+      </div>
+    {% endif %}
 
-  <div class="zig_zag_ctm">
+  <div class="zigzag_icon_display">
     {% for block in section.blocks %}
-        {% capture img_placement %}
+        {% capture icon_img_placement %}
           <div class="img_wrapper">
-             <img src="{{ block.settings.zigzag_img | img_url : 'master' }}" alt="image.alt | t" />
+             <img src="{{ block.settings.icon_zigzag_img | img_url : 'master' }}" alt="image.alt | t" />
           </div>
        {% endcapture %}
-      {% if block.type == "zig-zag" %}
-        {% if block.settings.image_aligment == 'image_left' %}
-          {{ img_placement }}
+      {% if block.type == "zigzag" %}
+        {% if block.settings.icon_image_aligment == 'image_left' %}
+          {{ icon_img_placement }}
         {% endif %}
        
-        <div class="zig_zag_content">
-          <h4>{{ block.settings.zigzag_heading }}</h4>
-          <p>{{ block.settings.zigzag_desc }}</p>
+        <div class="icon_zig_zag_content">
+          <h4>{{ block.settings.icon_zigzag_title }}</h4>
+          <p>{{ block.settings.icon_zigzag_content }}</p>
         </div>
 
-        {% if block.settings.image_aligment == 'image_right' %}
-          {{ img_placement }}
+        {% if block.settings.icon_image_aligment == 'image_right' %}
+          {{ icon_img_placement }}
         {% endif %}
     
         {% endif %}
       {% endfor %}
 
   </div>
-  
- {% if section.settings.zigzag_other_content %}
-   <div class="zigzag_other_content">
-   <p>{{ section.settings.zigzag_other_content }}</p>
-   </div>
-   {% endif %}
+
+  <div class="advs_section_avl-btn">
+      {% if section.setting.zigzag_btn_text != '' %}
+         <a href="{{ section.settings.available_link }}">{{ section.settings.zigzag_btn_text }}</a>
+      {% endif %}
+    </div>
 </div>
+
+
 
 {% schema %}
   {
-    "name": "Zig-zag",
-    "class":"adv-zigzag",
+    "name": "Icon zigzag",
+    "class":"adv_icon_zigzag",
     "settings": [
       {
-        "type":"html",
-        "id":"zigzag_title",
-        "label":"Title"
+        "type":"text",
+        "id":"icon_main_heading",
+        "label":"Heading"
       },
       {
-        "type":"html",
-        "id":"zigzag_content",
-        "label":"Content"
+        "type":"text",
+        "id":"zigzag_btn_text",
+        "label":"Check Button",
+         "default" : "CHECK AVAILABILITY"
       },
       {
-        "type":"html",
-        "id":"zigzag_other_content",
-        "label":"Other Content"
+        "type":"url",
+        "id":"zigzag_btn_link",
+        "label":"Check Link"
       }
     ],
     "blocks":[
       {
-        "name":"zig zag",
-        "type":"zig-zag",
+        "name":"Image",
+        "type":"image",
         "settings":[
           {
-            "type":"text",
-            "id":"zigzag_heading",
+            "type":"image_picker",
+            "id":"zigzag_image_demo",
+            "label":"Image"
+          }
+        ]
+      },
+      {
+        "type":"zigzag",
+        "name":"Icon Zigzag",
+        "settings":[
+          {
+            "type":"html",
+            "id":"icon_zigzag_title",
             "label":"Heading"
           },
           {
             "type":"html",
-            "id":"zigzag_desc",
-            "label":"Description"
+            "id":"icon_zigzag_content",
+            "label":"Content"
           },
           {
             "type":"image_picker",
-            "id":"zigzag_img",
+            "id":"icon_zigzag_img",
             "label":"Image"
           },
           {
             "type":"select",
-            "id":"image_aligment",
+            "id":"icon_image_aligment",
             "options":[
               {
                 "value": "image_left",
