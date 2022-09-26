@@ -332,31 +332,22 @@
     "1663572576b85cee80": {
       "type": "cards",
       "blocks": {
-        "3899a42f-fcd4-4338-95bb-01428a00cb8e": {
-          "type": "image",
+        "6ac884a4-15e9-485a-b890-515b4e19590a": {
+          "type": "zig-zag",
           "settings": {
-            "image_demo": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp"
-          }
-        },
-        "4eafb86c-b996-431b-9072-04d2d054321f": {
-          "type": "title",
-          "settings": {
-            "image_detail": "title",
-            "image_content": "content"
+            "zigzag_heading": "h",
+            "zigzag_desc": "hhh",
+            "zigzag_img": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp",
+            "image_aligment": "image_right"
           }
         }
       },
       "block_order": [
-        "3899a42f-fcd4-4338-95bb-01428a00cb8e",
-        "4eafb86c-b996-431b-9072-04d2d054321f"
+        "6ac884a4-15e9-485a-b890-515b4e19590a"
       ],
       "settings": {
-        "intro_heading": "",
-        "intro_title": "",
-        "image_title": "",
-        "description": "",
-        "content_one": "",
-        "title_text": ""
+        "zigzag_title": "f",
+        "zigzag_content": "f"
       }
     }
   },
