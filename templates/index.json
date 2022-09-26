@@ -332,23 +332,37 @@
     "1663572576b85cee80": {
       "type": "cards",
       "blocks": {
-        "6ac884a4-15e9-485a-b890-515b4e19590a": {
-          "type": "zig-zag",
+        "b40f2392-a59a-4b57-b188-691ea9ade92a": {
+          "type": "image",
           "settings": {
-            "zigzag_heading": "h",
-            "zigzag_desc": "hhh",
-            "zigzag_img": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp",
-            "image_aligment": "image_left"
+            "zigzag_image_demo": "shopify:\/\/shop_images\/Ratio-Eight-Brewing-White_540x_840f29ed-51eb-462a-b4e5-26be0cb1aebd.webp"
+          }
+        },
+        "1d573437-4b18-4b82-9320-36d613a5b772": {
+          "type": "image",
+          "settings": {
+            "zigzag_image_demo": "shopify:\/\/shop_images\/french-press-with-frothy-black-coffee-on-white-blanket.jpg"
+          }
+        },
+        "aa83f87b-0f47-4b6c-8834-eb16ed7bb0a0": {
+          "type": "zigzag",
+          "settings": {
+            "icon_zigzag_title": "rrrr",
+            "icon_zigzag_content": "rrrrr",
+            "icon_zigzag_img": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp",
+            "icon_image_aligment": "image_right"
           }
         }
       },
       "block_order": [
-        "6ac884a4-15e9-485a-b890-515b4e19590a"
+        "b40f2392-a59a-4b57-b188-691ea9ade92a",
+        "1d573437-4b18-4b82-9320-36d613a5b772",
+        "aa83f87b-0f47-4b6c-8834-eb16ed7bb0a0"
       ],
       "settings": {
-        "zigzag_title": "f",
-        "zigzag_content": "f",
-        "zigzag_other_content": ""
+        "icon_main_heading": "ddd",
+        "zigzag_btn_text": "CHECK AVAILABILITY",
+        "zigzag_btn_link": "#"
       }
     }
   },
