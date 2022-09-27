@@ -1,14 +1,14 @@
 <div class="advs_section_left">
   <div class="adv_review_main">
-
+    
     {% for block in section.blocks %}
       {% if block.type == 'review-box' %}
         <div class="review_box_ctm">
-          {% if block.settings.review_heading %}
-           <h4>⭐⭐⭐⭐⭐</h4>
-          {% endif %}
+         {% if block.settings.reviews_star != blank %}
+          <img src="{{ block.settings.reviews_star | img_url : 'master' }}" alt="image.alt | t" />
+         {% endif %}
           <h4>{{ block.settings.review_heading }}</h4>
-          <p>{{ block.settings.review_desc }}</p>
+          {{ block.settings.review_desc }}
           <p>{{ block.settings.reviewer_name }}</p>
           {% render 'verified-buyer' %}
           <p>{{ block.settings.verified_text }}</p>
@@ -29,6 +29,11 @@
       "type":"review-box",
       "name":"Review box",
       "settings":[
+        {
+          "type":"image_picker",
+          "id":"reviews_star",
+          "label":"Review Image"
+        },
         {
         "type":"html",
         "id":"review_heading",
