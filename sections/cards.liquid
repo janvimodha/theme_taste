@@ -1,128 +1,149 @@
 <div class="advs_section_left">
-  {% if section.settings.insta_feed_heading %}
-  <div class="insta_main_section">
-  <h2>{{ section.settings.insta_feed_heading }}</h2>
-  <p>{{ section.settings.insta_feed_desc }}</p>
-  </div>
-  {% endif %}
-
-  <div class="insta_feed_section">
-  {% for block in section.blocks %}
-    {% if block.type == "instagram-feed" %}
-      <div class="feed_card_ctm">
-        
-        {% if block.settings.adv_insta_img != blank %}
-      <img src="{{ block.settings.adv_insta_img | img_url : 'master' }}" alt="image.alt | t" />
-        {% endif %}
-      
-        {% if block.settings.insta_user_img != blank %}
-      <img src="{{ block.settings.insta_user_img | img_url : 'master' }}" alt="image.alt | t" />
-        {% endif %}
-      
-        {% if block.settings.insta_user_name != blank %}
-      <a href="{{ block.settings.insta_account_link }}" target="_blank">{{ block.settings.insta_user_name }}</a>
-        {% endif %}
-        {% render 'insta-frame' %}
-      
-      
-      {% if block.settings.insta_feed %}
-      <p>{{ block.settings.insta_feed }}</p>
-      {% endif %}
-      
+  <div class="adv_detail_main">
+    
+    {% if section.settings.detail_heading != blank %}
+      <div class="adv_detail_block">
+    <h2>{{ section.settings.detail_heading }}</h2>
+    <p>{{ section.settings.detail_content }}</p>
       </div>
     {% endif %}
-  {% endfor %}
-  </div>
-  
-  <div class="insta_content">
-    {% if section.settings.insta_other_content != blank %}
-    <p>{{ section.settings.insta_other_content }}</p>
-    {% endif %}
-  </div>
 
-  <div class="insta_content_logo">
+    {% if section.settings.detail_heading != blank %}
+      <div class="adv_detail_block_sec">
+    <h2>{{ section.settings.second_detail_heading }}</h2>
+      </div>
+    {% endif %}
+
+    {% for block in section.blocks %}
+      {% if block.type == 'product-detail' %}
+        <div class="product_image">
+          
+          {% if block.settings.product_img != blank %}
+        <img src="{{ block.settings.product_img | img_url : 'master' }}" alt="image.alt | t" />
+          {% endif %}
+        
+          {% if block.settings.discount_desc != blank %}
+        <p>{{ block.settings.discount_desc }}</p>
+          {% endif %}
+        
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    {% for block in section.blocks %}
+      {% if block.type == 'price' %}
+        <div class="product_price">
+          {% if block.settings.discount_price != blank %}
+        <p>{{ block.settings.discount_price }}</p>
+        <p>{{ block.settings.current_price }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    <div class="detail_block_logo">
     {% for block in section.blocks %}
       {% if block.type == "logo" %}
-        {% if block.settings.adv_logo_img != blank %}
-        <img src="{{ block.settings.adv_logo_img | img_url : 'master' }}" alt="image.alt | t" />
+        {% if block.settings.detail_logo_img != blank %}
+        <img src="{{ block.settings.detail_logo_img | img_url : 'master' }}" alt="image.alt | t" />
         {% endif %}
       {% endif %}
     {% endfor %}
   </div>
 
-  <div class="insta_second_content">
-    {% if section.settings.insta_logo_content != blank %}
-    <p>{{ section.settings.insta_logo_content }}</p>
-    {% endif %}
-  </div>
-
-  <div class="user_feed_image">
+    <div class="text_with_logo">
     {% for block in section.blocks %}
-      {% if block.type == "user-feed" %}
-        {% if block.settings.user_feed_img != blank %}
-        <img src="{{ block.settings.user_feed_img | img_url : 'master' }}" alt="image.alt | t" />
+      {% if block.type == "logo-with-text" %}
+        {% if  block.settings.adv_detail_content !=   blank %}
+          <p>{{ block.settings.adv_detail_content }}</p>
+        {% endif %}
+        {% if block.settings.logo_img != blank %}
+        <img src="{{ block.settings.logo_img | img_url : 'master' }}" alt="image.alt | t" />
         {% endif %}
       {% endif %}
     {% endfor %}
   </div>
-  
+
+    <div class="image_banner_ct">
+    {% for block in section.blocks %}
+      {% if block.type == "image-banner" %}
+        
+        {% if block.settings.img_banner != blank %}
+        <img src="{{ block.settings.img_banner | img_url : 'master' }}" alt="image.alt | t" />
+        {% endif %}
+
+        {% if block.settings.banner_heading != blank %}
+        <h2>{{ block.settings.banner_heading }}</h2>
+        {% endif %}
+
+        {% if block.settings.banner_title != blank %}
+        <p>{{ block.settings.banner_title }}</p>
+        {% endif %}
+
+       <div class="advs_section_avl-btn">
+      {% if section.setting.btn_text != '' %}
+         <a href="{{ section.settings.check_btn_link }}">{{ section.settings.btn_text }}</a>
+      {% endif %}
+    </div>
+        
+      {% endif %}
+    {% endfor %}
+  </div>
+    
+  </div>
 </div>
 
 {% schema %}
   {
-    "name": "Insta feed",
-    "class":"adv_insta_feed",
+    "name": "Adevertorial Detail",
+    "class":"adv-detail-ct",
     "settings": [
       {
         "type":"html",
-        "id":"insta_feed_heading",
+        "id":"detail_heading",
         "label":"Heading"
       },
       {
         "type":"html",
-        "id":"insta_feed_desc",
-        "label":"Description"
+        "id":"detail_content",
+        "label":"Content"
       },
       {
         "type":"html",
-        "id":"insta_other_content",
-        "label":"Before Logo Content"
-      },
-      {
-        "type":"html",
-        "id":"insta_logo_content",
-        "label":"After Logo Content"
+        "id":"second_detail_heading",
+        "label":"Second Heading"
       }
     ],
     "blocks":[
       {
-        "name":"Instagram feed",
-        "type":"instagram-feed",
+        "type":"product-detail",
+        "name":"Product Detail",
         "settings":[
           {
             "type":"image_picker",
-            "id":"adv_insta_img",
-            "label":"Image"
-          },
-          {
-            "type":"image_picker",
-            "id":"insta_user_img",
-            "label":"User Image"
-          },
-          { 
-            "type":"text",
-            "id":"insta_user_name",
-            "label":"User name"
-          },
-          {
-            "type":"url",
-            "id":"insta_account_link",
-            "label":"Account Link"
+            "id":"product_img",
+            "label":"Product Image"
           },
           {
             "type":"html",
-            "id":"insta_feed",
-            "label":"Feedback Detail"
+            "id":"discount_desc",
+            "label":"Discount Description"
+          }
+        ]
+      },
+      {
+        "type":"price",
+        "name":"Price",
+        "settings":[
+          {
+            "type":"text",
+            "id":"discount_price",
+            "label":"Discount Price"
+          },
+          {
+            "type":"text",
+            "id":"current_price",
+            "label":"Current Price"
           }
         ]
       },
@@ -132,19 +153,56 @@
         "settings":[
           {
             "type":"image_picker",
-            "id":"adv_logo_img",
+            "id":"detail_logo_img",
             "label":"Choose Logo Image"
           }
         ]
       },
       {
-        "type":"user-feed",
-        "name":"User Feed",
+        "type":"logo-with-text",
+        "name":"Logo with text",
         "settings":[
           {
             "type":"image_picker",
-            "id":"user_feed_img",
+            "id":"logo_img",
+            "label":"Choose Logo Image"
+          },
+          {
+            "type":"html",
+            "id":"adv_detail_content",
+            "label":"Description"
+          }
+        ]
+      },
+      {
+        "type":"image-banner",
+        "name":"Image Banner",
+        "settings":[
+          {
+            "type":"image_picker",
+            "id":"img_banner",
             "label":"Image"
+          },
+          {
+            "type":"html",
+            "id":"banner_heading",
+            "label":"Banner Heading"
+          },
+          {
+            "type":"html",
+            "id":"banner_title",
+            "label":"Banner Title"
+          },
+          { 
+            "type":"text",
+            "id":"btn_text",
+            "label":"Button name",
+            "default":"CHECK AVAILABILITY"
+          },
+          {
+            "type":"url",
+            "id":"check_btn_link",
+            "label":"Link"
           }
         ]
       }
@@ -152,3 +210,8 @@
   }
 {% endschema %}
 
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
