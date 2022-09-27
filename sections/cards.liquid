@@ -7,11 +7,21 @@
          {% if block.settings.reviews_star != blank %}
           <img src="{{ block.settings.reviews_star | img_url : 'master' }}" alt="image.alt | t" />
          {% endif %}
+
+          {% if block.settings.review_heading != blank %}
           <h4>{{ block.settings.review_heading }}</h4>
+          {% endif %}
+
+         {% if block.settings.review_desc != blank %}
           {{ block.settings.review_desc }}
-          <p>{{ block.settings.reviewer_name }}</p>
-          {% render 'verified-buyer' %}
-          <p>{{ block.settings.verified_text }}</p>
+         {% endif %}
+
+          {% if block.settings.reviewer_name != blank %}
+            <p>{{ block.settings.reviewer_name }}</p>
+            {% render 'verified-buyer' %}
+            <p>{{ block.settings.verified_text }}</p>
+          {% endif %}
+          
         </div>
       {% endif %}
     {% endfor %}
