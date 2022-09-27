@@ -1,121 +1,85 @@
 <div class="advs_section_left">
-  {% if section.setting.icon_main_heading != '' %}
-      <div class="icon_zigzag_main">
-      <h2>{{ section.settings.icon_main_heading }}</h2>
+  {% if section.settings.insta_feed_heading %}
+  <div class="insta_main_section">
+  <h2>{{ section.settings.insta_feed_heading }}</h2>
+  <p>{{ section.settings.insta_feed_desc }}</p>
+  </div>
+  {% endif %}
+
+  <div class="insta_feed_section">
+  {% for block in section.blocks %}
+    {% if block.type == "instagram-feed" %}
+      <div class="feed_card_ctm">
+        
+        {% if block.settings.adv_insta_img != blank %}
+      <img src="{{ block.settings.adv_insta_img | img_url : 'master' }}" alt="image.alt | t" />
+        {% endif %}
+      
+        {% if block.settings.insta_user_img != blank %}
+      <img src="{{ block.settings.insta_user_img | img_url : 'master' }}" alt="image.alt | t" />
+        {% endif %}
+      
+        {% if block.settings.insta_user_name != blank %}
+      <a href="{{ block.settings.insta_account_link }}" target="_blank" >{{ block.settings.insta_user_name }}</a>
+        {% endif %}
+        
+      {% include 'Frame' %}
+      
+      {% if block.settings.insta_feed %}
+      <p>{{ block.settings.insta_feed }}</p>
+      {% endif %}
+      
       </div>
     {% endif %}
-    
-  {% for block in section.blocks %}
-      {% if block.type == "image" %}
-        <div class="zigzag_main_image">
-        <img src="{{ block.settings.zigzag_image_demo | img_url : 'master' }}" alt="image.alt | t" />
-        </div>
-        {% endif %}
-    {% endfor %}
-        
-  <div class="zigzag_icon_display">
-    {% for block in section.blocks %}
-        {% capture icon_img_placement %}
-          <div class="img_wrapper">
-             <img src="{{ block.settings.icon_zigzag_img | img_url : 'master' }}" alt="image.alt | t" />
-          </div>
-       {% endcapture %}
-      {% if block.type == "zigzag" %}
-        {% if block.settings.icon_image_aligment == 'image_left' %}
-          {{ icon_img_placement }}
-        {% endif %}
-       
-        <div class="icon_zig_zag_content">
-          <h4>{{ block.settings.icon_zigzag_title }}</h4>
-          <p>{{ block.settings.icon_zigzag_content }}</p>
-        </div>
-
-        {% if block.settings.icon_image_aligment == 'image_right' %}
-          {{ icon_img_placement }}
-        {% endif %}
-    
-        {% endif %}
-      {% endfor %}
-
+  {% endfor %}
   </div>
-
-  <div class="advs_section_avl-btn">
-      {% if section.setting.zigzag_btn_text != '' %}
-         <a href="{{ section.settings.available_link }}">{{ section.settings.zigzag_btn_text }}</a>
-      {% endif %}
-    </div>
 </div>
-
-
 
 {% schema %}
   {
-    "name": "Icon zigzag",
-    "class":"adv_icon_zigzag",
+    "name": "Insta feed",
+    "class":"adv_insta_feed",
     "settings": [
       {
-        "type":"text",
-        "id":"icon_main_heading",
+        "type":"html",
+        "id":"insta_feed_heading",
         "label":"Heading"
       },
       {
-        "type":"text",
-        "id":"zigzag_btn_text",
-        "label":"Check Button",
-         "default" : "CHECK AVAILABILITY"
-      },
-      {
-        "type":"url",
-        "id":"zigzag_btn_link",
-        "label":"Check Link"
+        "type":"html",
+        "id":"insta_feed_desc",
+        "label":"Description"
       }
     ],
     "blocks":[
       {
-        "name":"Image",
-        "type":"image",
+        "name":"Instagram feed",
+        "type":"instagram-feed",
         "settings":[
           {
             "type":"image_picker",
-            "id":"zigzag_image_demo",
+            "id":"adv_insta_img",
             "label":"Image"
-          }
-        ]
-      },
-      {
-        "type":"zigzag",
-        "name":"Icon Zigzag",
-        "settings":[
-          {
-            "type":"html",
-            "id":"icon_zigzag_title",
-            "label":"Heading"
-          },
-          {
-            "type":"html",
-            "id":"icon_zigzag_content",
-            "label":"Content"
           },
           {
             "type":"image_picker",
-            "id":"icon_zigzag_img",
-            "label":"Image"
+            "id":"insta_user_img",
+            "label":"User Image"
           },
           {
-            "type":"select",
-            "id":"icon_image_aligment",
-            "options":[
-              {
-                "value": "image_left",
-                "label": "Left"
-              },
-              {
-                "value": "image_right",
-                "label": "Right"
-              }
-            ],
-            "label":"Image Alignment",
-            "default":"image_left"
+            "type":"text",
+            "id":"insta_user_name",
+            "label":"User name"
+          },
+          {
+            "type":"url",
+            "id":"insta_account_link",
+            "label":"Account Link"
+          },
+          {
+            "type":"html",
+            "id":"insta_feed",
+            "label":"Feedback Detail"
           }
         ]
       }
@@ -123,8 +87,3 @@
   }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
