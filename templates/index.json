@@ -300,23 +300,7 @@
     },
     "16607448703de80bfc": {
       "type": "main-test-product",
-      "blocks": {
-        "16607448704e222b2a-0": {
-          "type": "gallery",
-          "settings": {
-            "enable_gallery_img": false
-          }
-        }
-      },
-      "block_order": [
-        "16607448704e222b2a-0"
-      ],
       "settings": {
-        "text_notice": "",
-        "show_reviews": true,
-        "image_size": false,
-        "color_accent": "#ffffff",
-        "text_color": "#ffffff"
       }
     },
     "16611638085e323e1a": {
@@ -332,55 +316,20 @@
     "1663572576b85cee80": {
       "type": "cards",
       "blocks": {
-        "53cd4087-6bc4-42b8-87b5-4b708566b52a": {
-          "type": "product-detail",
+        "1de3b695-ac16-406c-95b8-a8f16f81d821": {
+          "type": "review-box",
           "settings": {
-            "product_img": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp",
-            "discount_desc": "dgdg"
-          }
-        },
-        "4688fab2-8bb4-40db-8ad4-7e2d78fecd5d": {
-          "type": "price",
-          "settings": {
-            "discount_price": "$95.20",
-            "current_price": "$119"
-          }
-        },
-        "02a1e322-0b38-4a1a-883e-b2e52ac040b6": {
-          "type": "logo",
-          "settings": {
-            "detail_logo_img": "shopify:\/\/shop_images\/Cosmoprof_Trendsetter_Badge_1.png"
-          }
-        },
-        "96c4a9f6-b5c2-482a-b6bb-de8a2979714f": {
-          "type": "logo-with-text",
-          "settings": {
-            "logo_img": "shopify:\/\/shop_images\/Cosmoprof_Trendsetter_Badge_1.png",
-            "adv_detail_content": "If you don’t get the results you want, you’re covered by a  30-day money-back guarantee. See results or get a full refund.\nBut don’t wait too long. This offer will expire in 6 days.\nGet yours while stock lasts!"
-          }
-        },
-        "0aeacce4-eed9-45e0-8c8a-e495ba5749fa": {
-          "type": "image-banner",
-          "settings": {
-            "img_banner": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp",
-            "banner_heading": "dfdf",
-            "banner_title": "dsds",
-            "btn_text": "CHECK AVAILABILITY",
-            "check_btn_link": "#"
+            "review_heading": "h",
+            "review_desc": "h",
+            "reviewer_name": "h",
+            "verified_text": "Verified Buyer"
           }
         }
       },
       "block_order": [
-        "53cd4087-6bc4-42b8-87b5-4b708566b52a",
-        "4688fab2-8bb4-40db-8ad4-7e2d78fecd5d",
-        "02a1e322-0b38-4a1a-883e-b2e52ac040b6",
-        "96c4a9f6-b5c2-482a-b6bb-de8a2979714f",
-        "0aeacce4-eed9-45e0-8c8a-e495ba5749fa"
+        "1de3b695-ac16-406c-95b8-a8f16f81d821"
       ],
       "settings": {
-        "detail_heading": "ff",
-        "detail_content": "ff",
-        "second_detail_heading": "fff"
       }
     }
   },

@@ -197,8 +197,6 @@
       "main-test-product": {
         "type": "main-test-product",
         "settings": {
-          "text_notice": "one",
-          "show_reviews": false
         }
       }
     },
