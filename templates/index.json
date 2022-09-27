@@ -319,6 +319,7 @@
         "1de3b695-ac16-406c-95b8-a8f16f81d821": {
           "type": "review-box",
           "settings": {
+            "reviews_star": "shopify:\/\/shop_images\/Group_35.png",
             "review_heading": "h",
             "review_desc": "h",
             "reviewer_name": "h",
