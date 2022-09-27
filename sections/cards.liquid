@@ -20,9 +20,9 @@
         {% endif %}
       
         {% if block.settings.insta_user_name != blank %}
-      <a href="{{ block.settings.insta_account_link }}" target="_blank" {% render 'insta-frame' %}>{{ block.settings.insta_user_name }}</a>
+      <a href="{{ block.settings.insta_account_link }}" target="_blank">{{ block.settings.insta_user_name }}</a>
         {% endif %}
-        
+        {% render 'insta-frame' %}
       
       
       {% if block.settings.insta_feed %}
