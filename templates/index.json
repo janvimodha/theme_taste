@@ -332,37 +332,55 @@
     "1663572576b85cee80": {
       "type": "cards",
       "blocks": {
-        "b40f2392-a59a-4b57-b188-691ea9ade92a": {
-          "type": "image",
+        "53cd4087-6bc4-42b8-87b5-4b708566b52a": {
+          "type": "product-detail",
           "settings": {
-            "zigzag_image_demo": "shopify:\/\/shop_images\/Ratio-Eight-Brewing-White_540x_840f29ed-51eb-462a-b4e5-26be0cb1aebd.webp"
+            "product_img": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp",
+            "discount_desc": "dgdg"
           }
         },
-        "1d573437-4b18-4b82-9320-36d613a5b772": {
-          "type": "image",
+        "4688fab2-8bb4-40db-8ad4-7e2d78fecd5d": {
+          "type": "price",
           "settings": {
-            "zigzag_image_demo": "shopify:\/\/shop_images\/french-press-with-frothy-black-coffee-on-white-blanket.jpg"
+            "discount_price": "$95.20",
+            "current_price": "$119"
           }
         },
-        "aa83f87b-0f47-4b6c-8834-eb16ed7bb0a0": {
-          "type": "zigzag",
+        "02a1e322-0b38-4a1a-883e-b2e52ac040b6": {
+          "type": "logo",
           "settings": {
-            "icon_zigzag_title": "rrrr",
-            "icon_zigzag_content": "rrrrr",
-            "icon_zigzag_img": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp",
-            "icon_image_aligment": "image_right"
+            "detail_logo_img": "shopify:\/\/shop_images\/Cosmoprof_Trendsetter_Badge_1.png"
+          }
+        },
+        "96c4a9f6-b5c2-482a-b6bb-de8a2979714f": {
+          "type": "logo-with-text",
+          "settings": {
+            "logo_img": "shopify:\/\/shop_images\/Cosmoprof_Trendsetter_Badge_1.png",
+            "adv_detail_content": "If you don’t get the results you want, you’re covered by a  30-day money-back guarantee. See results or get a full refund.\nBut don’t wait too long. This offer will expire in 6 days.\nGet yours while stock lasts!"
+          }
+        },
+        "0aeacce4-eed9-45e0-8c8a-e495ba5749fa": {
+          "type": "image-banner",
+          "settings": {
+            "img_banner": "shopify:\/\/shop_images\/Ratio-Eight-Button-Dark-Cobalt_540x_7ebaeea4-22dc-448a-8c47-f43856f72659.webp",
+            "banner_heading": "dfdf",
+            "banner_title": "dsds",
+            "btn_text": "CHECK AVAILABILITY",
+            "check_btn_link": "#"
           }
         }
       },
       "block_order": [
-        "b40f2392-a59a-4b57-b188-691ea9ade92a",
-        "1d573437-4b18-4b82-9320-36d613a5b772",
-        "aa83f87b-0f47-4b6c-8834-eb16ed7bb0a0"
+        "53cd4087-6bc4-42b8-87b5-4b708566b52a",
+        "4688fab2-8bb4-40db-8ad4-7e2d78fecd5d",
+        "02a1e322-0b38-4a1a-883e-b2e52ac040b6",
+        "96c4a9f6-b5c2-482a-b6bb-de8a2979714f",
+        "0aeacce4-eed9-45e0-8c8a-e495ba5749fa"
       ],
       "settings": {
-        "icon_main_heading": "ddd",
-        "zigzag_btn_text": "CHECK AVAILABILITY",
-        "zigzag_btn_link": "#"
+        "detail_heading": "ff",
+        "detail_content": "ff",
+        "second_detail_heading": "fff"
       }
     }
   },
