@@ -4,7 +4,7 @@
     {% for block in section.blocks %}
       {% if block.type == 'review-box' %}
         <div class="review_box_ctm">
-          {% if section.settings.show_reviews %}
+          {% if block.settings.review_heading %}
            <h4>⭐⭐⭐⭐⭐</h4>
           {% endif %}
           <h4>{{ block.settings.review_heading }}</h4>

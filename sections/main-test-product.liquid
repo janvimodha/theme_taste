@@ -1,95 +1,59 @@
-<div style="background-color:{{ section.settings.color_accent }}">
-<h3 style="color:{{ section.settings.text_color }}">Featured Product list</h3>
-<h2>{{ product.title }}</h2>
-<img src="{{ product.featured_image | img_url: '300x' }}" />
-{% if section.settings.show_reviews %}
-<h4>⭐⭐⭐⭐⭐</h4>
-  {% endif %}
-<p>{{ section.settings.text_notice}}</p>
+<div class="advs_section_left">
+  <div class="adv_review_main">
 
-{% if section.settings.image_size %}
-  <img src="{{ product.featured_image | img_url: '450x', crop: 'center' }}" />
-  {% endif %} 
-  </div>
-  <hr>
-  image gallery
-<div class="gallery" >
-   {% for block in section.blocks %}
-     <div class="gallery_item">
-       {% if block.settings.enable_gallery_img %}
-         <img src="{{ block.settings.gallery_image | img_url:'400x' }}"/>
-         {% endif %}
-     </div>
-     {% endfor %}
+    {% for block in section.blocks %}
+      {% if block.type == 'review-box' %}
+        <div class="review_box_ctm">
+          {% if block.settings.review_heading %}
+           <h4>⭐⭐⭐⭐⭐</h4>
+          {% endif %}
+          <h4>{{ block.settings.review_heading }}</h4>
+          <p>{{ block.settings.review_desc }}</p>
+          <p>{{ block.settings.reviewer_name }}</p>
+          {% render verified-buyer %}
+          <p>{{ block.settings.verified_text }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  
+</div>
 </div>
 {% schema %}
   {
-    "name": "Main test product",
+    "name": "Review",
+    "class":"adv_review",
     "settings": [
+      
+    ],
+    "blocks":[{
+      "type":"review-box",
+      "name":"Review box",
+      "settings":[
+        {
+        "type":"html",
+        "id":"review_heading",
+        "label":"Heading"
+      },
       {
-        "id": "text_notice",
+        "type":"html",
+        "id":"review_desc",
+        "label":"Description"
+      },
+      {
         "type":"text",
-        "label":"text notice"
+        "id":"reviewer_name",
+        "label":"User Name"
       },
       {
-        "id": "show_reviews",
-        "type":"checkbox",
-        "label":"show reviews here"
-      },
-       {
-        "id": "image_size",
-        "type":"checkbox",
-        "label":"450"
-      },
-        {
-          "type": "color",
-          "label": "choose background color",
-          "id": "color_accent",
-          "default": "#FFFFFF"
-        },
-      {
-          "type": "color",
-          "label": "choose heading color",
-          "id": "text_color",
-          "default": "#FFFFFF"
-        }
-       
-      ],
-    "blocks": [
-    {
-      "type": "gallery",
-      "name": "Gallery",
-      "settings": [
-        {
-          "type": "checkbox",
-          "label": "Enable gallery",
-          "id": "enable_gallery_img",
-          "default": false
-        },
-        {
-          "type": "image_picker",
-          "label": "choose image",
-          "id": "gallery_image"
-        }
-        
+        "type":"text",
+        "id":"verified_text",
+        "label":"Verified Text",
+        "default":"Verified Buyer"
+      }
       ]
     }
-  ],
-    "presets": [
-    {
-      "name": "custom product gallery",
-      "blocks" :[
-        {
-          "type":"gallery"
-        }
-      ]
-    }
-  ]
+      
+    ]
   }
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
