@@ -33,6 +33,39 @@
     {% endif %}
   {% endfor %}
   </div>
+  
+  <div class="insta_content">
+    {% if section.settings.insta_other_content != blank %}
+    <p>{{ section.settings.insta_other_content }}</p>
+    {% endif %}
+  </div>
+
+  <div class="insta_content_logo">
+    {% for block in section.blocks %}
+      {% if block.type == "logo" %}
+        {% if block.settings.adv_logo_img != blank %}
+        <img src="{{ block.settings.adv_logo_img | img_url : 'master' }}" alt="image.alt | t" />
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="insta_second_content">
+    {% if section.settings.insta_logo_content != blank %}
+    <p>{{ section.settings.insta_logo_content }}</p>
+    {% endif %}
+  </div>
+
+  <div class="user_feed_image">
+    {% for block in section.blocks %}
+      {% if block.type == "user-feed" %}
+        {% if block.settings.user_feed_img != blank %}
+        <img src="{{ block.settings.user_feed_img | img_url : 'master' }}" alt="image.alt | t" />
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+  
 </div>
 
 {% schema %}
@@ -49,6 +82,16 @@
         "type":"html",
         "id":"insta_feed_desc",
         "label":"Description"
+      },
+      {
+        "type":"html",
+        "id":"insta_other_content",
+        "label":"Before Logo Content"
+      },
+      {
+        "type":"html",
+        "id":"insta_logo_content",
+        "label":"After Logo Content"
       }
     ],
     "blocks":[
@@ -80,6 +123,28 @@
             "type":"html",
             "id":"insta_feed",
             "label":"Feedback Detail"
+          }
+        ]
+      },
+      {
+        "type":"logo",
+        "name":"Logo",
+        "settings":[
+          {
+            "type":"image_picker",
+            "id":"adv_logo_img",
+            "label":"Choose Logo Image"
+          }
+        ]
+      },
+      {
+        "type":"user-feed",
+        "name":"User Feed",
+        "settings":[
+          {
+            "type":"image_picker",
+            "id":"user_feed_img",
+            "label":"Image"
           }
         ]
       }
