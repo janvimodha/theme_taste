@@ -1,6 +1,7 @@
 <div class="bg-with-content relative lg:mt-50">
     {% if section.settings.bg-image != blank %}
     <div class="image-banner bg-cover h-[392px] md:h-500 lg:h-712" style="background-image:url({{ section.settings.bg-image | img_url:'master' }})"></div>
+      {% capture content_placement %}
     <div class="content-box lgscreen:shadow-bgimg  lgscreen:mb-50 lgscreen:-mt-[46px] lgscreen:mx-auto lg:absolute right-[64px] top-minus_20 bg-navy-blue mindscreen:pb-[60px] mindscreen:pt-[75px] lg:pb-[54px] lg:py-64 py-[47px] rounded-10 mindscreen:w-610 lg:w-[520px] sm:w-[90%] w-[90%] mindscreen:px-[75px] lg:px-55 px-30">
       {% if section.settings.image-logo != blank %}
           <img src="{{ section.settings.image-logo | img_url: 'master' }}" class="mb-10 lgscreen:mx-auto lgscreen:block" alt="icon">
@@ -15,6 +16,10 @@
           <div class="content-desc mt-15 lgscreen:!text-left">{{ section.settings.content }}</div>
       {% endif %}
   </div>
+    {% endcapture %}
+     {% if section.settings.content_aligment == 'content_left' %}
+          {{ content_placement }}
+        {% endif %}
     {% else %}
     {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
     {% endif %}
@@ -54,19 +59,19 @@
       },
       {
         "type":"select",
-            "id":"image_aligment",
+            "id":"content_aligment",
             "options":[
               {
-                "value": "image_left",
+                "value": "content_left",
                 "label": "Left"
               },
               {
-                "value": "image_right",
+                "value": "content_right",
                 "label": "Right"
               }
             ],
             "label":"Image Alignment",
-            "default":"image_left"
+            "default":"content_left"
       }
           
        
