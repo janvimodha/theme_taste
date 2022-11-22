@@ -219,7 +219,8 @@
 
   {{ 'flickity.css' | asset_url | stylesheet_tag }}
   {{ 'flickity.js' | asset_url | script_tag }}
-  </head>
+  {% include 'sca-quick-view-init' %}
+ </head>
 
   <body class="gradient">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
@@ -280,5 +281,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js">
 	</script>
     {{ 'demo.js' | asset_url | script_tag }}
-  </body>
+  {% include 'sca-quick-view-template' %} 
+ </body>
 </html>
