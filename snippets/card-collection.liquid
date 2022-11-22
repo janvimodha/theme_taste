@@ -53,12 +53,10 @@
               alt=""
               height="{{ card_collection.featured_image.height }}"
               width="{{ card_collection.featured_image.width }}"
+              {% include 'sca-quick-view' %}
               loading="lazy"
               class="motion-reduce"
             >
-            <div class="quick-view">
-            {% include 'sca-quick-view' %}
-            <div>
           </div>
         </div>
       
