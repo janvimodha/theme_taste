@@ -35,6 +35,7 @@
     data-media-id="{{ media.id }}"
     {% if variant_image %}class="product__media-item--variant"{% endif %}
   >
+  {% include 'sca-quick-view' %}
 {%- else -%}
   {%- if media.media_type == 'model' -%}
     <div class="product-media-modal__model" data-media-id="{{ media.id }}">
