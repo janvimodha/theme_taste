@@ -90,7 +90,6 @@
           <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'general.slider.next_slide' | t }}" aria-controls="Slider-{{ section.id }}">{% render 'icon-caret' %}</button>
         </div>
       {%- endif -%}
-      {% include 'sca-quick-view' %}
     </slider-component>
 
     {%- if section.settings.show_view_all and more_in_collection -%}
