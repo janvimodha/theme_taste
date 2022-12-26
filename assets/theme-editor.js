@@ -21,5 +21,5 @@ document.addEventListener('shopify:block:deselect', function(event) {
 });
 
 $("#submit").click(function (){
-  $('.Timer').text((new Date - start) / 1000 + " Seconds");
-},1000);
+  alert("hello");
+});
