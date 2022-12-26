@@ -222,6 +222,15 @@
   {{ 'flickity.js' | asset_url | script_tag }}
   {% include 'sca-quick-view-init' %}
   <script type="text/javascript" src="https://load.fomo.com/api/v1/mkIHvaUbTCmDsGDs2vU8Wg/load.js" async></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#timer").click(function(){
+    alert("The paragraph was clicked.");
+  });
+});
+</script>
  </head>
 
   <body class="gradient">
