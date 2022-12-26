@@ -478,7 +478,6 @@
                       class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
                       {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
                     >
-                  <p id="timer">this is paragraph</p>
                         <span>
                           {%- if product.selected_or_first_available_variant.available -%}
                             {{ 'products.product.add_to_cart' | t }}
@@ -708,11 +707,11 @@
     prevNextButtons: false
   });
 </script>
-     $("#timer").click(function(){
+     
+<script>
+  $("#timer").click(function(){
   alert("The paragraph was clicked.");
 });     
-<script>
-  
 </script>
 {% schema %}
 {
