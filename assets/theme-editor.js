@@ -20,4 +20,6 @@ document.addEventListener('shopify:block:deselect', function(event) {
   if (parentSlideshowComponent.autoplayButtonIsSetToPlay) parentSlideshowComponent.play();
 });
 
-
+$("#submit").click(function (){
+  alert("hello");
+});
