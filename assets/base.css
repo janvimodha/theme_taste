@@ -2956,6 +2956,6 @@ details-disclosure > details {
   border: 1px solid;
 }
 .countdown{
-  padding-left: 2px;
-  padding-right: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
