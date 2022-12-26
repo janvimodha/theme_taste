@@ -343,11 +343,9 @@
 
 <script>
   var timer2 = "10:00";
-var interval = setInterval(function() {
-
-
+  var interval = setInterval(function() {
+    
   var timer = timer2.split(':');
-  //by parsing integer, I avoid all extra string processing
   var minutes = parseInt(timer[0], 10);
   var seconds = parseInt(timer[1], 10);
   --seconds;
