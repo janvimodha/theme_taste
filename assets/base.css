@@ -2955,3 +2955,7 @@ details-disclosure > details {
   font-size: 14px;
   border: 1px solid;
 }
+.countdown{
+  padding-left: 2px;
+  padding-right: 2px;
+}
