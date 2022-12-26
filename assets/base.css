@@ -2949,3 +2949,9 @@ details-disclosure > details {
   }
 }
 /* pdp slider css end */
+
+.countdown-message{
+  display: flex;
+  font-size: 14px;
+  border: 1px solid;
+}
