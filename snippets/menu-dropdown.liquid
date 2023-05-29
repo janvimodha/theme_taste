@@ -1,0 +1,8 @@
+{% case variable %}
+  {% when first_value or second_value or third_value %}
+    first_expression
+  {% when fourth_value, fifth_value, sixth_value %}
+    second_expression
+  {% else %}
+    third_expression
+{% endcase %}
