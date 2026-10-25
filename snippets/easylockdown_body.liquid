@@ -1,1 +1,56 @@
+{% comment %}EasyLockdownSnippetRevision:20261025134904-6d65d442b83f{% endcomment %}
+{% unless request.design_mode %}
+{% if elhDefines %}  {% assign elhDefines = elhDefines | split: '--elhResultItem--' %}  {% if elhDefines[0] == '1' %}{% assign easylockdownON = true %}{% endif %}  {% assign easylockdownRedirectURL = elhDefines[1] %}  {% assign easylockdownPage404Title = elhDefines[2] %}  {% assign easylockdownPage404Message = elhDefines[3] %}{% endif %}{% capture easylockdownPage404Content %}<div class="easylockdown404-content-container"><div class="easylockdown404-content-wrapper"><div class="easylockdown404-title-holder"><span class="easylockdown-title-404">{{ easylockdownPage404Title }}</span></div><div class="easylockdown404-content-holder rte"><div class="easylockdown-message-404">{{ easylockdownPage404Message }}</div></div></div></div>{% endcapture %}
+{% if easylockdownON %}<div id='easylockdown404'>{{ easylockdownPage404Content }}</div>{% else %}<div class='easylockdown-content'>{{ content_for_layout }}</div>{% endif %}
+
+<script>
+if(typeof easylockdownLoopingProblem !== 'undefined' && easylockdownLoopingProblem){
+  (function(){
+    var noticeClass='easylockdown-loop-'+'notice';
+    var contentBlocks=document.querySelectorAll(".easylockdown-content,#easylockdown404");
+    var noticeTarget=document.getElementById('MainContent')||document.querySelector('.content-for-layout')||document.querySelector('main');
+    var notices=document.querySelectorAll("."+noticeClass);
+    var notice=notices[0]||document.createElement('div');
+    for(var i=1;i<notices.length;i++)notices[i].remove();
+    if(!notices.length){
+      notice.className=noticeClass;
+      notice.style.textAlign='center';
+      notice.style.padding='50px';
+      var header=document.createElement('div');
+      header.className='easylockdown-loop-page-header';
+      header.style.fontSize='24px';
+      header.style.margin='0 0 20px';
+      header.style.fontWeight='bold';
+      header.style.lineHeight='28px';
+      header.textContent='Access '+'Denied';
+      var content=document.createElement('div');
+      content.className='easylockdown-loop-page-content';
+      content.style.fontSize='16px';
+      content.style.maxWidth='500px';
+      content.style.margin='0 auto';
+      content.style.lineHeight='24px';
+      content.style.color='#5A5B5B';
+      var strong=document.createElement('b');
+      strong.textContent='IMPORTANT!';
+      content.appendChild(strong);
+      content.appendChild(document.createTextNode(' If you are a store owner, please make sure customer accounts are enabled in your Store Admin, as you have customer based locks set up with EasyLockdown app.'));
+      notice.appendChild(header);
+      notice.appendChild(content);
+    }
+    notice.style.display='block';
+    if(notice.parentNode)notice.parentNode.removeChild(notice);
+    for(var j=0;j<contentBlocks.length;j++){
+      if(noticeTarget&&(contentBlocks[j]===noticeTarget||contentBlocks[j].contains(noticeTarget))){
+        while(noticeTarget.firstChild)noticeTarget.removeChild(noticeTarget.firstChild);
+      }else{
+        contentBlocks[j].remove();
+      }
+    }
+    (noticeTarget||document.body||document.documentElement).appendChild(notice);
+  })();
+}
+</script>
+
+{% else %}
 {{ content_for_layout }}
+{% endunless %}
